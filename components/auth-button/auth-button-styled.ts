@@ -10,6 +10,7 @@ export const AuthButton = styled.button`
   border-radius: 5px;
   margin: auto;
   margin-right: 10px;
+  margin-left: 15px;
 
   &:active {
     background-color: #0f010e;
