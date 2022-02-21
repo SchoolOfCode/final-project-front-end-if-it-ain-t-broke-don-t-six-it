@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import MenuPageComponent from "../components/menu-page/menu-page-component";
 import NavBarComponent from "../components/navbar/navbar-component";
 
 const Menu: NextPage = () => {
@@ -11,6 +12,7 @@ const Menu: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBarComponent isMenu={true} />
+      <MenuPageComponent />
     </div>
   );
 };
