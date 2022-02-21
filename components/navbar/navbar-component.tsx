@@ -5,7 +5,6 @@ import MenuButtonComponent from "../menu-button/menu-button-component";
 import UserImageComponent from "../user-image/user-image-component";
 import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 type Props = {
   isMenu: boolean;
@@ -13,7 +12,6 @@ type Props = {
 
 function NavBarComponent({ isMenu }: Props) {
   const { user } = useUser();
-  const router = useRouter();
 
   return (
     <NavBar>
