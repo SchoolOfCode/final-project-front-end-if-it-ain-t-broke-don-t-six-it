@@ -4,13 +4,14 @@ import { Field } from "./field-styled";
 
 type Props = {
   name: string;
+  onChange: () => void;
 };
 
-function FieldComponent({ name }: Props) {
+function FieldComponent({ name, onChange }: Props) {
   return (
     <Field>
       <FieldHeaderComponent text={name} />
-      <TextInputComponent />
+      <TextInputComponent onChange={onChange} />
     </Field>
   );
 }
