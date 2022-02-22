@@ -50,15 +50,12 @@ type initialStateTypes = {
   tags: [string];
 };
 
-type Props = {
-  state: initialStateTypes;
-  action: {
-    type: string;
-    value: string;
-  };
+type ActionTypes = {
+  type: string;
+  value: string;
 };
 
-function reducer(state: object, action: object) {
+function reducer(state: initialStateTypes, action: ActionTypes) {
   switch (action.type) {
     case "title":
       return { ...state, title: action.value };
