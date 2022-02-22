@@ -1,6 +1,7 @@
 import DnTFieldComponent from "../dnt-field/dnt-field-component";
 import FieldComponent from "../field/field-component";
 import ListFieldComponent from "../list-field/list-field-component";
+import LongButtonComponent from "../long-button/long-button-component";
 import { Form } from "./form-styled";
 
 function FormComponent() {
@@ -17,6 +18,7 @@ function FormComponent() {
       <FieldComponent name="Requirements: " />
       <DnTFieldComponent />
       <FieldComponent name="Pay Rate: *" />
+      <LongButtonComponent text="Submit" />
     </Form>
   );
 }
