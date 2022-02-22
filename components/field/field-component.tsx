@@ -1,10 +1,10 @@
 import FieldHeaderComponent from "../field-header/field-header-component";
-import TextInputComponent from "../text-input/text-input-conponent";
+import TextInputComponent from "../text-input/text-input-component";
 import { Field } from "./field-styled";
 
 type Props = {
   name: string;
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 function FieldComponent({ name, onChange }: Props) {
