@@ -1,3 +1,4 @@
+import DnTInputComponent from "../dnt-input/dnt-input-component";
 import FieldComponent from "../field/field-component";
 import { Form } from "./form-styled";
 
@@ -12,6 +13,7 @@ function FormComponent() {
       <FieldComponent name="Postcode: *" />
       <FieldComponent name="Description: *" />
       <FieldComponent name="Pay Rate: *" />
+      <DnTInputComponent />
     </Form>
   );
 }
