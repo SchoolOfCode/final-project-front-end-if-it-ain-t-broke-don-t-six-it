@@ -11,7 +11,7 @@ function PostJobPageComponent() {
         alt="domestic cleaner"
       />
       <PageHeaderComponent text="Post Job Listing" />
-      {/* <FormComponent /> */}
+      <FormComponent />
     </PostJobPage>
   );
 }

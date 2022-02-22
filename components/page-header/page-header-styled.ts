@@ -8,6 +8,7 @@ export const PageHeader = styled.h1`
   font-size: 27px;
   width: 70vw;
   margin: auto;
+  margin-bottom: 5px;
   margin-top: -20px;
   z-index: 1;
   padding: 5px;

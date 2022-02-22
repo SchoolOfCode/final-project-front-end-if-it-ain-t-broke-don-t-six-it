@@ -1,3 +1,5 @@
 import styled from "styled-components";
 
-export const Field = styled.div``;
+export const Field = styled.div`
+  margin: none;
+`;
