@@ -1,7 +1,11 @@
 import { TextInput } from "./text-input-styled";
 
-function TextInputComponent() {
-  return <TextInput />;
+type Props = {
+  onChange: () => void;
+};
+
+function TextInputComponent({ onChange }: Props) {
+  return <TextInput onChange={onChange} />;
 }
 
 export default TextInputComponent;
