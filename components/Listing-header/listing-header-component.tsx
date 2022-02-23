@@ -1,3 +1,7 @@
-import styled from "styled-components";
+import { ListingHeader } from "./listing-header-styled";
 
-export const ListingHeader = styled.h2``;
+function ListingHeaderComponent() {
+  return <ListingHeader />;
+}
+
+export default ListingHeaderComponent;
