@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const LongButton = styled.button`
   margin: 15px;
-  height: 35px;
-  background-color: #33032f;
-  width: 90%;
+  height: 40px;
+  background-color: #9A348E;
+  width: 91%;
   font-size: 20px;
   color: white;
   border: none;

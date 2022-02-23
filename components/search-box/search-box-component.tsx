@@ -5,8 +5,8 @@ import { SearchBox } from "./search-box-styled";
 
 function SearchBoxComponent(){
     return <SearchBox>
-       <SearchFilterComponent filterWord = "location:"/>
-       <SearchFilterComponent filterWord = "keywords:"/>
+       <SearchFilterComponent filterWord = "Location:"/>
+       <SearchFilterComponent filterWord = "Keywords:"/>
        <LongButtonComponent text = "Search"/>
 
     </SearchBox>
