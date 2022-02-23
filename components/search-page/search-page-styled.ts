@@ -1,5 +1,4 @@
 import styled from "styled-components";
 
-export const SmallButton = styled.p`
-
+export const SearchPage = styled.main`
 `;

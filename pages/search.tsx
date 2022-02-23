@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import NavBarComponent from "../components/navbar/navbar-component";
-import LandingPageComponent from "../components/landing-page/landing-page-component";
+import SearchPageComponent from "../components/search-page/search-page-component";
 
 
-const Home: NextPage = () => {
+const PostJob: NextPage = () => {
   return (
     <div>
       <Head>
@@ -13,9 +13,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBarComponent isMenu={false} />
-      <LandingPageComponent />
+      <SearchPageComponent/>
+     
     </div>
   );
 };
 
-export default Home;
+export default PostJob;
