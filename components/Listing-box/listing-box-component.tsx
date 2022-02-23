@@ -1,6 +1,11 @@
+import ListingLocationComponent from "../listing-location/listing-location-component";
 import { ListingBox } from "./listing-box-styled";
 
-function ListingBoxComponent() {
-  return <ListingBox />;
+export function ListingBoxComponent() {
+  return (
+    <ListingBox>
+      <ListingLocationComponent />
+    </ListingBox>
+  );
 }
 export default ListingBoxComponent;
