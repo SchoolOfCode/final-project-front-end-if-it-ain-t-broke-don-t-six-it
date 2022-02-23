@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const LongButton = styled.button`
+  align-self: flex-end;
   height: 35px;
   background-color: #33032f;
-  width: 100%;
+  width: 90%;
   font-size: 20px;
   color: white;
   border: none;
