@@ -1,3 +1,7 @@
 import styled from "styled-components";
 
-export const SearchFilter = styled.div``;
+export const SearchFilter = styled.div`
+
+
+
+`;
