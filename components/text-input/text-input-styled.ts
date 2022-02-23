@@ -4,8 +4,8 @@ export const TextInput = styled.input.attrs({
   type: "text",
 })`
   width: 100%;
-  heigth: 18px;
+  height: 34.28px;
   font-size: 18px;
   position: relative;
-  top: -15px;
+  top: -9px;
 `;
