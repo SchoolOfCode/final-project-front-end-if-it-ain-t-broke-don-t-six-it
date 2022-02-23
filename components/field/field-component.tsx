@@ -4,7 +4,7 @@ import { Field } from "./field-styled";
 
 type Props = {
   name: string;
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 function FieldComponent({ name, onChange }: Props) {

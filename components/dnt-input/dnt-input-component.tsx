@@ -1,18 +1,21 @@
+import { DatePickerProps } from "antd";
+import { MentionPlacement } from "antd/lib/mentions";
 import { DnTInput, SpaceComponent } from "./dnt-input-styled";
+import { DatePicker, Space } from "antd";
+import type { Moment } from "moment";
 
-function DnTInputComponent() {
-  function onChange(value: any, dateString: any) {
-    console.log("Selected Time: ", value);
-    console.log("Formatted Selected Time: ", dateString);
-  }
+type Props = {
+  onOk: (date: Moment & A) => void;
+};
 
-  function onOk(value: any) {
-    console.log("onOk: ", value);
-  }
+type A = {
+  _d: Date;
+};
 
+function DnTInputComponent({ onOk }: Props) {
   return (
     <SpaceComponent direction="vertical" size={12}>
-      <DnTInput showTime onChange={onChange} onOk={onOk} />
+      <DnTInput showTime onOk={onOk} />
     </SpaceComponent>
   );
 }
