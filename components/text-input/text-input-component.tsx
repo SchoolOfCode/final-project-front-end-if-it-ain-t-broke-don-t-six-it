@@ -1,7 +1,7 @@
 import { TextInput } from "./text-input-styled";
 
 type Props = {
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 function TextInputComponent({ onChange }: Props) {

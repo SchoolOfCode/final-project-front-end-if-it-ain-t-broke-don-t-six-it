@@ -4,8 +4,8 @@ import "antd/dist/antd.css";
 
 export const ListInput = styled(Cascader)`
   position: relative;
-  top: -10px;
+  top: -9px;
   border: 2px solid black;
   width: 100%;
-  height: 34.28px;
+  height: 34.5px;
 `;

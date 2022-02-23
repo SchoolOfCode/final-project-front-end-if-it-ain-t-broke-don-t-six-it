@@ -1,8 +1,10 @@
 import { FilterWord } from "./filter-word-styled";
-
-function FilterWordComponent(){
+type props = {
+    filterWord:String
+}
+function FilterWordComponent({filterWord}:props){
     return <FilterWord>
-        {/* {Text} */}
+        {filterWord}
     </FilterWord>
 }
 export default FilterWordComponent;

@@ -1,4 +1,8 @@
+import { DefaultOptionType } from "antd/lib/cascader";
+import { ChangeEvent } from "react";
 import { ListInput } from "./list-input-styled";
+import { Cascader } from "antd";
+import "antd/dist/antd.css";
 
 const options = [
   {
@@ -31,11 +35,11 @@ const options = [
   },
 ];
 
-function ListInputComponent() {
-  function onChange(value: any) {
-    console.log(value);
-  }
+type Props = {
+  onChange: (e: string[][]) => void;
+};
 
+function ListInputComponent({ onChange }: Props) {
   return (
     <ListInput
       options={options}

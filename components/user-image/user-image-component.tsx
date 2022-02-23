@@ -1,7 +1,7 @@
 import { UserImage } from "./user-image-styled";
 
 type Props = {
-  source: string;
+  source: string | null | undefined;
   username: string;
 };
 
