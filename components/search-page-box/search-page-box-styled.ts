@@ -5,4 +5,5 @@ background-color: #1D201E;
 width: 100vw;
 margin:auto;
 display: flex;
-flex-direction: column;`;
+flex-direction: column;
+`;

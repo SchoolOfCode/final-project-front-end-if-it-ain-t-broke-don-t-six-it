@@ -13,7 +13,7 @@ function onClick(){
     return (
         <SearchPageBox>
             <SearchFilterComponent filterWord="Location:"/>
-            <SearchFilterComponent filterWord="Location:"/>
+            <SearchFilterComponent filterWord="Keywords:"/>
             <LongSearchButtonComponent/>
             <FiltersButtonComponent />
         </SearchPageBox>
