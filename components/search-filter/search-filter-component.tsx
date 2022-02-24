@@ -1,10 +1,10 @@
 import FilterInputComponent from "../filter-input/filter-input-component";
 import FilterWordComponent from "../filter-word/filter-word-component";
 import { SearchFilter } from "./search-filter-styled";
-type props = {
+type Props = {
     filterWord:String
 }
-function SearchFilterComponent({filterWord}:props){
+function SearchFilterComponent({filterWord}:Props){
     return <SearchFilter>
         <FilterWordComponent filterWord = {filterWord}/>
         <FilterInputComponent/>

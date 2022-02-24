@@ -1,18 +1,15 @@
-import FavouriteButtonComponent from "../favourite-button/favourite-button-component";
-import ListingHeaderComponent from "../Listing-header/listing-header-component";
-import UserImageComponent from "../user-image/user-image-component";
-import ListingLocationComponent from "../listing-location/listing-location-component";
 import { ListingBox } from "./listing-box-styled";
-import { useUser } from "@auth0/nextjs-auth0";
+import TopComponent from "../top/top-component";
 
-function ListingBoxComponent() {
-  const { user } = useUser();
+type Props = {
+  title: string;
+  source: string;
+}
+
+function ListingBoxComponent({title, source}: Props) {
   return (
     <ListingBox>
-      <UserImageComponent source="/user-icon.png" username="Sixit" />
-      <ListingHeaderComponent />
-       <ListingLocationComponent />
-      <FavouriteButtonComponent />
+      <TopComponent text={title} source={source} />
     </ListingBox>
   );
 }
