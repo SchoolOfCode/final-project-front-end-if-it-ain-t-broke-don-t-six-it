@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
-export const Top = styled.div`
+export const Bottom = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-between;
-height: 45px;
-
-`;
+height: 40px;`; 

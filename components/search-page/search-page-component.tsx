@@ -17,7 +17,7 @@ function SearchPageComponent() {
       <BackgroundImageComponent source="/gardening.jpeg" alt="gardening" />
       <PageHeaderComponent text="Search For Jobs" />
       <SearchPageBoxComponent/>
-      <ListingBoxComponent title="Job Title" source="/user-icon.png"/>
+      <ListingBoxComponent title="Job Title" source="/user-icon.png" address="Leamington Spa, Warwickshire" date="25/02/2022 14:00" pay={15} />
     </SearchPage>
   );
 }
