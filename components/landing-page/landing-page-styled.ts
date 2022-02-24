@@ -5,3 +5,8 @@ display: flex;
 flex-direction: column;
 justify-content: space-between;
 `;
+
+export const AboutSection = styled.div`
+margin-top:150px;
+
+`;
