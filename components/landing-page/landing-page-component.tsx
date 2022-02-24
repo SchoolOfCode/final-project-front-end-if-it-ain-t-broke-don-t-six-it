@@ -1,20 +1,36 @@
 import AboutBoxComponent from "../about-box/about-box-component";
 import BackgroundImageComponent from "../background-image/background-image-component";
 import SearchBoxComponent from "../search-box/search-box-component";
-import { LandingPage } from "./landing-page-styled";
+import { LandingPage, AboutSection } from "./landing-page-styled";
 
 type Props = {
-    title: String;
-    description: String;
-  };
+  title: String;
+  description: String;
+};
 
-function LandingPageComponent({title, description }: Props){
-    return <LandingPage>
-        <BackgroundImageComponent source="/delivery-driver.jpg" alt="delivery-driver"/>
-        <SearchBoxComponent/>
-        <AboutBoxComponent title="Benefits" description="abc"/> 
-        <AboutBoxComponent title="Info" description="abc"/> 
-
+function LandingPageComponent({ title, description }: Props) {
+  return (
+    <LandingPage>
+      <BackgroundImageComponent
+        source="/delivery-driver.jpg"
+        alt="delivery-driver"
+      />
+      <SearchBoxComponent />
+      <AboutSection>
+        <AboutBoxComponent
+          title="Benefits"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce purus sapien, tincidunt sed semper sed, vestibulum ac eros. "
+        />
+        <AboutBoxComponent
+          title="Info"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce purus sapien, tincidunt sed semper sed, vestibulum ac eros."
+        />
+        <AboutBoxComponent
+          title="Info"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce purus sapien, tincidunt sed semper sed, vestibulum ac eros."
+        />
+      </AboutSection>
     </LandingPage>
+  );
 }
 export default LandingPageComponent;
