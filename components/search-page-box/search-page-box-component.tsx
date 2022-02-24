@@ -4,20 +4,19 @@ import LongSearchButtonComponent from "../long-search-button/long-search-button-
 import SearchFilterComponent from "../search-filter/search-filter-component";
 import { SearchPageBox } from "./search-page-box-styled";
 
-function SearchPageBoxComponent(){
+type Props = {
+  onClick: () => void;
+};
 
-function onClick(){
-    console.log("Search")
+function SearchPageBoxComponent({ onClick }: Props) {
+  return (
+    <SearchPageBox>
+      <SearchFilterComponent filterWord="Location:" />
+      <SearchFilterComponent filterWord="Keywords:" />
+      <LongSearchButtonComponent onClick={onClick} />
+      <FiltersButtonComponent />
+    </SearchPageBox>
+  );
 }
 
-    return (
-        <SearchPageBox>
-            <SearchFilterComponent filterWord="Location:"/>
-            <SearchFilterComponent filterWord="Keywords:"/>
-            <LongSearchButtonComponent/>
-            <FiltersButtonComponent />
-        </SearchPageBox>
-    )
-}
-
-export default SearchPageBoxComponent
+export default SearchPageBoxComponent;

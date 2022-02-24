@@ -3,12 +3,7 @@ import BackgroundImageComponent from "../background-image/background-image-compo
 import SearchBoxComponent from "../search-box/search-box-component";
 import { LandingPage, AboutSection } from "./landing-page-styled";
 
-type Props = {
-  title: String;
-  description: String;
-};
-
-function LandingPageComponent({ title, description }: Props) {
+function LandingPageComponent() {
   return (
     <LandingPage>
       <BackgroundImageComponent

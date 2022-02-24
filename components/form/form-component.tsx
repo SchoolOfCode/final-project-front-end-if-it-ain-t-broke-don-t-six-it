@@ -149,11 +149,11 @@ function reducer(
       return { ...state, postcode: action.value };
     case "description":
       return { ...state, description: action.value };
-    case "tags":
-      let arr = action.value.map((array) => {
-        return array[0];
-      });
-      return { ...state, tags: [...state.tags, ...arr] };
+    // case "tags":
+    //   let arr = action.value.map((array) => {
+    //     return array[0];
+    //   });
+    // return { ...state, tags: [...state.tags, ...arr] };
     case "requirements":
       return { ...state, requirement: action.value };
     case "dateAndTime":
@@ -178,8 +178,21 @@ function FormComponent() {
   const { user } = useUser();
 
   useEffect(() => {
-    console.log(state);
-  }, [isClicked, state]);
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(state),
+    };
+    async function postJob() {
+      const response = await fetch(
+        "https://oddjob.herokuapp.com/jobs",
+        requestOptions
+      );
+      const data = await response.json();
+      console.log(data);
+    }
+    postJob();
+  }, [isClicked]);
 
   return (
     <Form>
@@ -233,7 +246,6 @@ function FormComponent() {
           />
           <ListFieldComponent
             onChange={(e) => {
-              console.log(e);
               dispatch({ type: "tags", value: e });
             }}
           />

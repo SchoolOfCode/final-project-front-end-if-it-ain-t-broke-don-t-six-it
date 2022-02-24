@@ -11,4 +11,5 @@ export const SearchBox = styled.div`
   width: 90%;
   margin: auto;
   position: absolute;
+  height: 280px;
 `;
