@@ -14,7 +14,6 @@ const PostJob: NextPage = () => {
       </Head>
       <NavBarComponent isMenu={false} />
       <SearchPageComponent/>
-     
     </div>
   );
 };

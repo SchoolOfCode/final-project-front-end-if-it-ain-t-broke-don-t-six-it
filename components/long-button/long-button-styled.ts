@@ -13,6 +13,7 @@ export const LongButton = styled.button`
   margin: auto;
   margin-bottom: 15px;
   margin-top: 10px;
+  align-items: center;
   &:active {
     background-color: #0f010e;
     transform: translateY(0.5px);

@@ -1,8 +1,11 @@
 import { ListingLocation } from "./listing-location-styled";
 
-function ListingLocationComponent() {
-  return;
-  <ListingLocation />;
+type Props = {
+  text: string;
+}
+
+function ListingLocationComponent({text}:Props) {
+  return <ListingLocation>{text}</ListingLocation>;
 }
 
 export default ListingLocationComponent;

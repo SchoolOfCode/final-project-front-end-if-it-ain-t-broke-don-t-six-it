@@ -1,10 +1,12 @@
 import FilterInputComponent from "../filter-input/filter-input-component";
 import FilterWordComponent from "../filter-word/filter-word-component";
 import { SearchFilter } from "./search-filter-styled";
+
 type props = {
   filterWord: String;
   onChange: () => void;
 };
+
 function SearchFilterComponent({ filterWord, onChange }: props) {
   return (
     <SearchFilter>
@@ -13,4 +15,5 @@ function SearchFilterComponent({ filterWord, onChange }: props) {
     </SearchFilter>
   );
 }
+        
 export default SearchFilterComponent;
