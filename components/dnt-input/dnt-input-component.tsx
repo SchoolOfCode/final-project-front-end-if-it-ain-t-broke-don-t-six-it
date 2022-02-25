@@ -5,11 +5,7 @@ import { DatePicker, Space } from "antd";
 import type { Moment } from "moment";
 
 type Props = {
-  onOk: (date: Moment & A) => void;
-};
-
-type A = {
-  _d: Date;
+  onOk: (date: Moment) => void;
 };
 
 function DnTInputComponent({ onOk }: Props) {

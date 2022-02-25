@@ -178,6 +178,7 @@ function FormComponent() {
   const { user } = useUser();
 
   useEffect(() => {
+    console.log(state);
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },

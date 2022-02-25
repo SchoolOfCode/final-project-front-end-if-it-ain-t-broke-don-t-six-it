@@ -4,11 +4,7 @@ import { DnTField } from "./dnt-field-styled";
 import type { Moment } from "moment";
 
 type Props = {
-  onOk: (date: Moment & A) => void;
-};
-
-type A = {
-  _d: Date;
+  onOk: (date: Moment) => void;
 };
 
 function DnTFieldComponent({ onOk }: Props) {
