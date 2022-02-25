@@ -2,6 +2,10 @@
   font-family: "Roboto";
   src: url("../public/roboto/Roboto-Regular.ttf");
 }
+@font-face {
+  font-family: "Pacifico";
+  src: url("../public/pacifico/Pacifico-Regular.ttf");
+}
 
 html,
 body {
