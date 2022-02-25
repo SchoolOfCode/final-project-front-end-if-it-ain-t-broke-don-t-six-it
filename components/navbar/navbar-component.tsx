@@ -20,7 +20,11 @@ function NavBarComponent({ isMenu }: Props) {
           <MenuButtonComponent isMenu={isMenu} />
         </a>
       </Link>
-      <LogoComponent />
+      <Link href="/">
+        <a>
+          <LogoComponent />
+        </a>
+      </Link>
       {!user && (
         <Link href="/api/auth/login">
           <a>
