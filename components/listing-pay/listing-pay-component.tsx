@@ -5,7 +5,7 @@ type Props = {
 };
 
 function ListingPayComponent({ text }: Props) {
-  return <ListingPay>{text}</ListingPay>;
+  return <ListingPay>£{text}</ListingPay>;
 }
 
 export default ListingPayComponent;

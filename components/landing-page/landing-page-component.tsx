@@ -13,7 +13,7 @@ function LandingPageComponent() {
       <SearchBoxComponent />
       <AboutSection>
         <AboutBoxComponent
-          title="Benefits"
+          title="Find Work in Minutes"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce purus sapien, tincidunt sed semper sed, vestibulum ac eros. "
         />
         <AboutBoxComponent

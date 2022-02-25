@@ -18,7 +18,7 @@ function SearchBoxComponent() {
       <SearchFilterComponent filterWord="Location:" onChange={setLocation} />
       <SearchFilterComponent filterWord="Keywords:" onChange={setKeywords} />
       <LongButtonComponent
-        text="Search"
+        text="Find New Jobs"
         onClick={() => router.push("/search")}
       />
     </SearchBox>
