@@ -15,8 +15,11 @@ function SearchBoxComponent() {
     <SearchBox>
       <SearchFilterComponent filterWord="Location:" onChange={setLocation} />
       <SearchFilterComponent filterWord="Keywords:" onChange={setKeywords} />
-      <Link href={{ pathname: "/search", query: { location, keywords } }}>
-        <LongButtonComponent text="Search" onClick={handleSearch} />
+      <Link href="/search">
+        <a>
+          <LongButtonComponent text="Search" onClick={handleSearch} />
+        </a>
+        
       </Link>
     </SearchBox>
   );
