@@ -4,13 +4,11 @@ import FilterWordComponent from "../filter-word/filter-word-component";
 import { SearchFilter } from "./search-filter-styled";
 
 type props = {
-<<<<<<< Updated upstream
   filterWord: string;
   onChange: (e: React.ChangeEvent<HTMLElement>) => void;
-=======
-  filterWord: String;
-  onChange: (e: any) => void;
->>>>>>> Stashed changes
+  // =======
+  //   filterWord: String;
+  //   onChange: (e: any) => void;
 };
 
 function SearchFilterComponent({ filterWord, onChange }: props) {

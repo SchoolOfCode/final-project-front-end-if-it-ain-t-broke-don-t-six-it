@@ -192,8 +192,11 @@ function FormComponent() {
       );
       const data = await response.json();
       console.log(data);
+      setIsClicked(false);
     }
-    postJob();
+    if (isClicked) {
+      postJob();
+    }
   }, [isClicked]);
 
   return (
