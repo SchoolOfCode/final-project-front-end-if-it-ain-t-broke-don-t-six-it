@@ -6,13 +6,14 @@ import { SingleValueType } from "rc-cascader/lib/Cascader";
 
 type Props = {
   onChange: (value: SingleValueType[]) => void;
+  options: [];
 };
 
-function ListFieldComponent({ onChange }: Props) {
+function ListFieldComponent({ onChange, options }: Props) {
   return (
     <ListField>
       <FieldHeaderComponent text="Tags:" />
-      <ListInputComponent onChange={onChange} />
+      <ListInputComponent options={options} onChange={onChange} />
     </ListField>
   );
 }

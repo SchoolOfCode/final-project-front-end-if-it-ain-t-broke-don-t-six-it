@@ -28,18 +28,20 @@ function SearchPageComponent() {
       <BackgroundImageComponent source="/gardening.jpeg" alt="gardening" />
       <PageHeaderComponent text="Search For Jobs" />
       <SearchPageBoxComponent onClick={() => setToggleFetch(!toggleFetch)} />
-      {jobs.map(({ job_id, title, user_image, date, rate_of_pay }) => {
-        return (
-          <ListingBoxComponent
-            key={job_id}
-            title={title}
-            source="/user-icon.png"
-            address="Leamington Spa, Warwickshire"
-            date={date}
-            pay={rate_of_pay}
-          />
-        );
-      })}
+      {jobs.map(
+        ({ job_id, title, user_image, date, rate_of_pay, city, county }) => {
+          return (
+            <ListingBoxComponent
+              key={job_id}
+              title={title}
+              source="/user-icon.png"
+              address={`${city}, ${county}`}
+              date={`${date.substring(0, 10)} ${date.substring(11, 16)}`}
+              pay={rate_of_pay}
+            />
+          );
+        }
+      )}
       <ShowMoreButtonComponent onClick={() => setOffSet(offSet + 5)} />
     </SearchPage>
   );
