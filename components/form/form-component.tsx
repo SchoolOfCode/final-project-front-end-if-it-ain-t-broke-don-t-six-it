@@ -7,7 +7,7 @@ import { useEffect, useReducer, useState } from "react";
 import { useUser } from "@auth0/nextjs-auth0";
 import AuthButtonComponent from "../auth-button/auth-button-component";
 import { SingleValueType } from "rc-cascader/lib/Cascader";
-import { type } from "os";
+import PayFieldComponent from "../pay-field/pay-field-component";
 
 const initialState: initialStateTypes = {
   accepted_user_id: null,
@@ -282,10 +282,7 @@ function FormComponent() {
               dispatch({ type: "dateAndTime", value: date.toDate() });
             }}
           />
-          <FieldComponent
-            name="Pay Rate: *"
-            onChange={(e) => dispatch({ type: "pay", value: e.target.value })}
-          />
+          <PayFieldComponent dispatch={dispatch} />
           <LongButtonComponent
             text="Submit"
             onClick={() => {
