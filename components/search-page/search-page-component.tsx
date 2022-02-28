@@ -1,6 +1,5 @@
-import { log } from "console";
 import BackgroundImageComponent from "../background-image/background-image-component";
-import ListingBoxComponent from "../listing-box/listing-box-component";
+// import ListingBoxComponent from "../listing-box/listing-box-component";
 import PageHeaderComponent from "../page-header/page-header-component";
 import SearchPageBoxComponent from "../search-page-box/search-page-box-component";
 import { SearchPage } from "./search-page-styled";
@@ -29,7 +28,7 @@ function SearchPageComponent() {
       <BackgroundImageComponent source="/gardening.jpeg" alt="gardening" />
       <PageHeaderComponent text="Search For Jobs" />
       <SearchPageBoxComponent onClick={() => setToggleFetch(!toggleFetch)} />
-      {jobs.map(({ job_id, title, user_image, date, rate_of_pay }) => {
+      {/* {jobs.map(({ job_id, title, user_image, date, rate_of_pay }) => {
         return (
           <ListingBoxComponent
             key={job_id}
@@ -40,7 +39,7 @@ function SearchPageComponent() {
             pay={rate_of_pay}
           />
         );
-      })}
+      })} */}
       <ShowMoreButtonComponent onClick={() => setOffSet(offSet + 5)} />
     </SearchPage>
   );
