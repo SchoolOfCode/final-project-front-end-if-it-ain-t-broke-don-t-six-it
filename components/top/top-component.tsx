@@ -1,4 +1,4 @@
-import ListingHeaderComponent from "../listing-header/listing-header-component";
+// import ListingHeaderComponent from "../listing-header/listing-header-component";
 import TopRightComponent from "../top-right/top-right-component";
 import { Top } from "./top-styled";
 
@@ -10,7 +10,7 @@ type Props = {
 function TopComponent({ text, source }: Props) {
   return (
     <Top>
-      <ListingHeaderComponent text={text} />
+      {/* <ListingHeaderComponent text={text} /> */}
       <TopRightComponent source={source} />
     </Top>
   );
