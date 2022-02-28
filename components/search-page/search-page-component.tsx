@@ -37,7 +37,7 @@ function SearchPageComponent() {
               title={title}
               source="/user-icon.png"
               address={`${city}, ${county}`}
-              date={date}
+              date={`${date.substring(0, 10)} ${date.substring(11, 16)}`}
               pay={rate_of_pay}
             />
           );
