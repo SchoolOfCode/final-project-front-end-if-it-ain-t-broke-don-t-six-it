@@ -4,14 +4,15 @@ import { Field } from "./field-styled";
 
 type Props = {
   name: string;
+  value: string | number
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-function FieldComponent({ name, onChange }: Props) {
+function FieldComponent({ value,name, onChange }: Props) {
   return (
     <Field>
       <FieldHeaderComponent text={name} />
-      <TextInputComponent onChange={onChange} />
+      <TextInputComponent onChange={onChange} value={value}/>
     </Field>
   );
 }
