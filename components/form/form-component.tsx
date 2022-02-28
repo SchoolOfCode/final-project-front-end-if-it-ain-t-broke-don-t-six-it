@@ -6,6 +6,7 @@ import { Form } from "./form-styled";
 import { useEffect, useReducer, useState } from "react";
 import { useUser } from "@auth0/nextjs-auth0";
 import AuthButtonComponent from "../auth-button/auth-button-component";
+import { SingleValueType } from "rc-cascader/lib/Cascader";
 
 const initialState: initialStateTypes = {
   accepted_user_id: null,
@@ -86,7 +87,7 @@ interface description {
 
 interface tags {
   type: "tags";
-  value: string[][];
+  value: SingleValueType[];
 }
 
 interface requirements {
@@ -247,6 +248,8 @@ function FormComponent() {
           />
           <ListFieldComponent
             onChange={(e) => {
+              console.log(e);
+
               dispatch({ type: "tags", value: e });
             }}
           />

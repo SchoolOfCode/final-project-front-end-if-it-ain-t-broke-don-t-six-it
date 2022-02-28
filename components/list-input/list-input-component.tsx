@@ -3,6 +3,7 @@ import { ChangeEvent } from "react";
 import { ListInput } from "./list-input-styled";
 import { Cascader } from "antd";
 import "antd/dist/antd.css";
+import { SingleValueType } from "rc-cascader/lib/Cascader";
 
 const options = [
   {
@@ -36,7 +37,7 @@ const options = [
 ];
 
 type Props = {
-  onChange: (e: string[][]) => void;
+  onChange: (value: SingleValueType[]) => void;
 };
 
 function ListInputComponent({ onChange }: Props) {
