@@ -4,7 +4,8 @@ import { PayField } from "./pay-field-styled";
 function PayFieldComponent() {
   return (
     <PayField>
-      <FieldHeaderComponent text="Pay: *" />
+      <FieldHeaderComponent text="Pay (£): * " />
+
       <div></div>
     </PayField>
   );
