@@ -1,4 +1,3 @@
-import Link from "Next/link";
 import { useState } from "react";
 import LongButtonComponent from "../long-button/long-button-component";
 import SearchFilterComponent from "../search-filter/search-filter-component";
@@ -15,8 +14,14 @@ function SearchBoxComponent() {
   }
   return (
     <SearchBox>
-      <SearchFilterComponent filterWord="Location:" onChange={setLocation} />
-      <SearchFilterComponent filterWord="Keywords:" onChange={setKeywords} />
+      <SearchFilterComponent
+        filterWord="Location:"
+        onChange={(e) => setLocation(e.target.value)}
+      />
+      <SearchFilterComponent
+        filterWord="Keywords:"
+        onChange={(e) => setKeywords(e.target.value)}
+      />
       <LongButtonComponent
         text="Find New Jobs"
         onClick={() => router.push("/search")}

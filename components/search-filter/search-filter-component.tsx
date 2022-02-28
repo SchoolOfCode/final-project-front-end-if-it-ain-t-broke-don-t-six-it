@@ -5,7 +5,7 @@ import { SearchFilter } from "./search-filter-styled";
 
 type props = {
   filterWord: string;
-  onChange: (e: React.ChangeEvent<HTMLElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 function SearchFilterComponent({ filterWord, onChange }: props) {
