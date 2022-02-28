@@ -9,10 +9,20 @@ type Props = {
 };
 
 function SearchPageBoxComponent({ onClick }: Props) {
+  function onChange(e: any) {
+    console.log("entered word", e.target.value);
+  }
+
   return (
     <SearchPageBox>
-      <SearchFilterComponent filterWord="Location:" />
-      <SearchFilterComponent filterWord="Keywords:" />
+      <SearchFilterComponent
+        filterWord="Location:"
+        onChange={(e) => onChange(e)}
+      />
+      <SearchFilterComponent
+        filterWord="Keywords:"
+        onChange={(e) => onChange(e)}
+      />
       <LongSearchButtonComponent onClick={onClick} />
       <FiltersButtonComponent />
     </SearchPageBox>

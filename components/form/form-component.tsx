@@ -259,7 +259,7 @@ function FormComponent() {
           <DnTFieldComponent
             onOk={(date) => {
               console.log(date);
-              dispatch({ type: "dateAndTime", value: date._d });
+              dispatch({ type: "dateAndTime", value: date.toDate() });
             }}
           />
           <FieldComponent
