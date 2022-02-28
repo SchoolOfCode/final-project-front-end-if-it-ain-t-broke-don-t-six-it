@@ -5,42 +5,52 @@ import { Cascader } from "antd";
 import "antd/dist/antd.css";
 import { SingleValueType } from "rc-cascader/lib/Cascader";
 
-const options = [
-  {
-    label: "Cleaning",
-    value: "cleaning",
-  },
-  {
-    label: "Delivery",
-    value: "delivery",
-  },
-  {
-    label: "Baby Sitting",
-    value: "baby sitting",
-  },
-  {
-    label: "Dog Walking",
-    value: "dog walking",
-  },
-  {
-    label: "House Sitting",
-    value: "house sitting",
-  },
-  {
-    label: "Tutor",
-    value: "tutor",
-  },
-  {
-    label: "Valeting",
-    value: "valeting",
-  },
-];
+// const options = [
+//   {
+//     label: "Cleaning",
+//     value: "cleaning",
+//   },
+//   {
+//     label: "Delivery",
+//     value: "delivery",
+//   },
+//   {
+//     label: "Baby Sitting",
+//     value: "baby sitting",
+//   },
+//   {
+//     label: "Dog Walking",
+//     value: "dog walking",
+//   },
+//   {
+//     label: "House Sitting",
+//     value: "house sitting",
+//   },
+//   {
+//     label: "Tutor",
+//     value: "tutor",
+//   },
+//   {
+//     label: "Valeting",
+//     value: "valeting",
+//   },
+// ];
 
 type Props = {
   onChange: (value: SingleValueType[]) => void;
+  options: {
+    tag: string;
+    tag_id: number;
+    label: string;
+    value: string;
+  }[];
 };
 
-function ListInputComponent({ onChange }: Props) {
+function ListInputComponent({ onChange, options }: Props) {
+  const tagOptions = options.map((option) => {
+    option = { ...option, label: option.tag, value: option.tag };
+    return option;
+  });
   return (
     <ListInput
       options={options}

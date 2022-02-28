@@ -7,6 +7,7 @@ import { useEffect, useReducer, useState } from "react";
 import { useUser } from "@auth0/nextjs-auth0";
 import AuthButtonComponent from "../auth-button/auth-button-component";
 import { SingleValueType } from "rc-cascader/lib/Cascader";
+import { type } from "os";
 
 const initialState: initialStateTypes = {
   accepted_user_id: null,
@@ -172,11 +173,23 @@ function reducer(
       return state;
   }
 }
+type payload = [];
 
 function FormComponent() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [isClicked, setIsClicked] = useState(false);
   const { user } = useUser();
+  const [tags, setTags] = useState<payload>([]);
+
+  useEffect(() => {
+    async function getTags() {
+      const response = await fetch("https://oddjob.herokuapp.com/tags");
+      const data = await response.json();
+      setTags(data.payload);
+      console.log(data.payload);
+    }
+    getTags();
+  }, []);
 
   useEffect(() => {
     console.log(state);
@@ -250,6 +263,7 @@ function FormComponent() {
             }
           />
           <ListFieldComponent
+            options={tags}
             onChange={(e) => {
               console.log(e);
 
