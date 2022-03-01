@@ -4,14 +4,10 @@ import SmallTextInputComponent from "../small-text-input/small-text-input-compon
 import { PayField } from "./pay-field-styled";
 import { useState, useEffect } from "react";
 import { SingleValueType } from "rc-cascader/lib/Cascader";
+import type { ActionTypes } from "../form/form-component";
 
 type Props = {
-  dispatch: (action: Action) => void;
-};
-
-type Action = {
-  type: string;
-  value: string;
+  dispatch: (value: ActionTypes) => void;
 };
 
 function PayFieldComponent({ dispatch }: Props) {
@@ -31,6 +27,10 @@ function PayFieldComponent({ dispatch }: Props) {
   useEffect(() => {
     setCombined(`${text} ${rate}`);
   }, [text, rate]);
+
+  useEffect(() => {
+    dispatch({ type: "pay", value: combined });
+  }, [combined]);
 
   return (
     <PayField>

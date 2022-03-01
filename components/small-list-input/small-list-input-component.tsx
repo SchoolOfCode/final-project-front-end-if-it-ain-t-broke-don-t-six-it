@@ -15,7 +15,7 @@ function SmallListInputComponent({ onChange }: Props) {
     <SmallListInput
       options={options}
       onChange={onChange}
-      multiple
+      multiple={false}
       maxTagCount="responsive"
     />
   );

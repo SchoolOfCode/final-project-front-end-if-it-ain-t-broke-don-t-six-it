@@ -13,7 +13,7 @@ const initialState: initialStateTypes = {
   accepted_user_id: null,
   date: new Date(),
   description: "",
-  rate_of_pay: 0,
+  rate_of_pay: "",
   requirement: "",
   status: "open",
   title: "",
@@ -34,7 +34,7 @@ type initialStateTypes = {
   accepted_user_id: null;
   date: Date;
   description: string;
-  rate_of_pay: number;
+  rate_of_pay: string;
   requirement: string;
   status: string;
   title: string;
@@ -114,7 +114,7 @@ interface submit {
   };
 }
 
-type ActionTypes =
+export type ActionTypes =
   | title
   | numbername
   | street
@@ -161,7 +161,7 @@ function reducer(
     case "dateAndTime":
       return { ...state, date: action.value };
     case "pay":
-      return { ...state, rate_of_pay: Number(action.value) };
+      return { ...state, rate_of_pay: action.value };
     case "submit":
       return {
         ...state,
