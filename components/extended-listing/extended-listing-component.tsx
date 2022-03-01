@@ -6,6 +6,7 @@ import ListingLocationComponent from "../listing-location/listing-location-compo
 import ListingPayComponent from "../listing-pay/listing-pay-component";
 import TagsComponent from "../tags/tags-component";
 import UserImageComponent from "../user-image/user-image-component";
+import UserInfoComponent from "../user-info/user-info-component";
 import { ExtendedListing } from "./extended-listing-styled";
 function ExtendedListingComponent() {
   return (
@@ -18,6 +19,7 @@ function ExtendedListingComponent() {
       <ListingPayComponent />
       <ListingDescriptionComponent />
       <TagsComponent tags={} />
+      <UserInfoComponent />
     </ExtendedListing>
   );
 }
