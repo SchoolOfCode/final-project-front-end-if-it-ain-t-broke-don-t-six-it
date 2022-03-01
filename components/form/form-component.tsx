@@ -127,7 +127,7 @@ interface resetState {
     user_image: string | null | undefined;
     user_name: string | null | undefined;
     user_rating: number;
-    number: number;
+    number: number | null;
     name: string;
     street: string;
     city: string;
