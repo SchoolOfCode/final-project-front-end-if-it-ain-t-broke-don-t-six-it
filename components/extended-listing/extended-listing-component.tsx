@@ -4,6 +4,7 @@ import ListingDnTComponent from "../listing-dnt/listing-dnt-component";
 import ListingHeaderComponent from "../listing-header/listing-header-component";
 import ListingLocationComponent from "../listing-location/listing-location-component";
 import ListingPayComponent from "../listing-pay/listing-pay-component";
+import TagsComponent from "../tags/tags-component";
 import UserImageComponent from "../user-image/user-image-component";
 import { ExtendedListing } from "./extended-listing-styled";
 function ExtendedListingComponent() {
@@ -16,6 +17,7 @@ function ExtendedListingComponent() {
       <ListingDnTComponent />
       <ListingPayComponent />
       <ListingDescriptionComponent />
+      <TagsComponent tags={} />
     </ExtendedListing>
   );
 }
