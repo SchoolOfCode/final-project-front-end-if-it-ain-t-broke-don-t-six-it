@@ -34,7 +34,7 @@ function SearchPageComponent() {
             <ListingBoxComponent
               key={job_id}
               title={title}
-              source="/user-icon.png"
+              source={user_image}
               address={`${city}, ${county}`}
               date={`${date.substring(0, 10)} ${date.substring(11, 16)}`}
               pay={rate_of_pay}

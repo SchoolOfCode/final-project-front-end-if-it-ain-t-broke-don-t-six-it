@@ -7,13 +7,14 @@ import { useEffect, useReducer, useState } from "react";
 import { useUser } from "@auth0/nextjs-auth0";
 import AuthButtonComponent from "../auth-button/auth-button-component";
 import { SingleValueType } from "rc-cascader/lib/Cascader";
-import { type } from "os";
+import PayFieldComponent from "../pay-field/pay-field-component";
+import PopUpComponent from "../pop-up/pop-up-component";
 
 const initialState: initialStateTypes = {
   accepted_user_id: null,
   date: new Date(),
   description: "",
-  rate_of_pay: 0,
+  rate_of_pay: "",
   requirement: "",
   status: "open",
   title: "",
@@ -34,7 +35,7 @@ type initialStateTypes = {
   accepted_user_id: null;
   date: Date;
   description: string;
-  rate_of_pay: number;
+  rate_of_pay: string;
   requirement: string;
   status: string;
   title: string;
@@ -119,7 +120,7 @@ interface resetState {
     accepted_user_id: null;
     date: Date;
     description: string;
-    rate_of_pay: number;
+    rate_of_pay: string;
     requirement: string;
     status: string;
     title: string;
@@ -137,7 +138,7 @@ interface resetState {
   };
 }
 
-type ActionTypes =
+export type ActionTypes =
   | title
   | numbername
   | street
@@ -185,7 +186,7 @@ function reducer(
     case "dateAndTime":
       return { ...state, date: action.value };
     case "pay":
-      return { ...state, rate_of_pay: Number(action.value) };
+      return { ...state, rate_of_pay: action.value };
     case "resetState":
       return { ...action.value };
     case "submit":
@@ -206,6 +207,7 @@ function FormComponent() {
   const [isClicked, setIsClicked] = useState(false);
   const { user } = useUser();
   const [tags, setTags] = useState<payload>([]);
+  const [popUpToggle, setpopUpToggle] = useState(false);
 
   useEffect(() => {
     async function getTags() {
@@ -317,11 +319,14 @@ function FormComponent() {
               dispatch({ type: "dateAndTime", value: date.toDate() });
             }}
           />
-          <FieldComponent
-            value={state.rate_of_pay}
-            name="Pay Rate: *"
-            onChange={(e) => dispatch({ type: "pay", value: e.target.value })}
-          />
+          <PayFieldComponent dispatch={dispatch} />
+          {popUpToggle && (
+            <PopUpComponent
+              onClick={() => {
+                setpopUpToggle(!popUpToggle);
+              }}
+            />
+          )}
           <LongButtonComponent
             text="Submit"
             onClick={() => {
@@ -330,6 +335,7 @@ function FormComponent() {
                 value: { userpic: user.picture, username: user.name },
               });
               setIsClicked(!isClicked);
+              setpopUpToggle(!popUpToggle);
             }}
           />
         </div>
