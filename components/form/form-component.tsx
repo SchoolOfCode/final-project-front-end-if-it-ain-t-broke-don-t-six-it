@@ -7,13 +7,14 @@ import { useEffect, useReducer, useState } from "react";
 import { useUser } from "@auth0/nextjs-auth0";
 import AuthButtonComponent from "../auth-button/auth-button-component";
 import { SingleValueType } from "rc-cascader/lib/Cascader";
-import { type } from "os";
+import PayFieldComponent from "../pay-field/pay-field-component";
+import PopUpComponent from "../pop-up/pop-up-component";
 
 const initialState: initialStateTypes = {
   accepted_user_id: null,
   date: new Date(),
   description: "",
-  rate_of_pay: 0,
+  rate_of_pay: "",
   requirement: "",
   status: "open",
   title: "",
@@ -21,7 +22,7 @@ const initialState: initialStateTypes = {
   user_image: "",
   user_name: "",
   user_rating: 0,
-  number: 0,
+  number: null,
   name: "",
   street: "",
   city: "",
@@ -34,7 +35,7 @@ type initialStateTypes = {
   accepted_user_id: null;
   date: Date;
   description: string;
-  rate_of_pay: number;
+  rate_of_pay: string;
   requirement: string;
   status: string;
   title: string;
@@ -42,7 +43,7 @@ type initialStateTypes = {
   user_image: string | null | undefined;
   user_name: string | null | undefined;
   user_rating: number;
-  number: number;
+  number: number | null;
   name: string;
   street: string;
   city: string;
@@ -113,8 +114,31 @@ interface submit {
     username: string | null | undefined;
   };
 }
+interface resetState {
+  type: "resetState";
+  value: {
+    accepted_user_id: null;
+    date: Date;
+    description: string;
+    rate_of_pay: string;
+    requirement: string;
+    status: string;
+    title: string;
+    user_id: string | null | undefined;
+    user_image: string | null | undefined;
+    user_name: string | null | undefined;
+    user_rating: number;
+    number: number | null;
+    name: string;
+    street: string;
+    city: string;
+    county: string;
+    postcode: string;
+    tags: (string | number | null | undefined)[];
+  };
+}
 
-type ActionTypes =
+export type ActionTypes =
   | title
   | numbername
   | street
@@ -126,7 +150,8 @@ type ActionTypes =
   | requirements
   | dateandtime
   | pay
-  | submit;
+  | submit
+  | resetState;
 
 function reducer(
   state: initialStateTypes,
@@ -151,17 +176,19 @@ function reducer(
       return { ...state, postcode: action.value };
     case "description":
       return { ...state, description: action.value };
-    // case "tags":
-    //   let arr = action.value.map((array) => {
-    //     return array[0];
-    //   });
-    // return { ...state, tags: [...state.tags, ...arr] };
+    case "tags":
+      let arr = action.value.map((array) => {
+        return array[0];
+      });
+      return { ...state, tags: [...arr] };
     case "requirements":
       return { ...state, requirement: action.value };
     case "dateAndTime":
       return { ...state, date: action.value };
     case "pay":
-      return { ...state, rate_of_pay: Number(action.value) };
+      return { ...state, rate_of_pay: action.value };
+    case "resetState":
+      return { ...action.value };
     case "submit":
       return {
         ...state,
@@ -180,6 +207,7 @@ function FormComponent() {
   const [isClicked, setIsClicked] = useState(false);
   const { user } = useUser();
   const [tags, setTags] = useState<payload>([]);
+  const [popUpToggle, setpopUpToggle] = useState(false);
 
   useEffect(() => {
     async function getTags() {
@@ -210,6 +238,7 @@ function FormComponent() {
     if (isClicked) {
       postJob();
     }
+    dispatch({ type: "resetState", value: initialState });
   }, [isClicked]);
 
   return (
@@ -224,9 +253,11 @@ function FormComponent() {
         <div>
           <FieldComponent
             name="Job Title: *"
+            value={state.title}
             onChange={(e) => dispatch({ type: "title", value: e.target.value })}
           />
           <FieldComponent
+            value={state.number ? state.number : state.name}
             name="Address Number/Name: *"
             onChange={(e) =>
               dispatch({ type: "number/name", value: e.target.value })
@@ -234,29 +265,34 @@ function FormComponent() {
           />
           <FieldComponent
             name="Street: *"
+            value={state.street}
             onChange={(e) =>
               dispatch({ type: "street", value: e.target.value })
             }
           />
           <FieldComponent
+            value={state.city}
             name="Town/City: *"
             onChange={(e) =>
               dispatch({ type: "town/city", value: e.target.value })
             }
           />
           <FieldComponent
+            value={state.county}
             name="County: *"
             onChange={(e) =>
               dispatch({ type: "county", value: e.target.value })
             }
           />
           <FieldComponent
+            value={state.postcode}
             name="Postcode: *"
             onChange={(e) =>
               dispatch({ type: "postcode", value: e.target.value })
             }
           />
           <FieldComponent
+            value={state.description}
             name="Description: *"
             onChange={(e) =>
               dispatch({ type: "description", value: e.target.value })
@@ -271,6 +307,7 @@ function FormComponent() {
             }}
           />
           <FieldComponent
+            value={state.requirement}
             name="Requirements: "
             onChange={(e) =>
               dispatch({ type: "requirements", value: e.target.value })
@@ -282,10 +319,14 @@ function FormComponent() {
               dispatch({ type: "dateAndTime", value: date.toDate() });
             }}
           />
-          <FieldComponent
-            name="Pay Rate: *"
-            onChange={(e) => dispatch({ type: "pay", value: e.target.value })}
-          />
+          <PayFieldComponent dispatch={dispatch} />
+          {popUpToggle && (
+            <PopUpComponent
+              onClick={() => {
+                setpopUpToggle(!popUpToggle);
+              }}
+            />
+          )}
           <LongButtonComponent
             text="Submit"
             onClick={() => {
@@ -294,6 +335,7 @@ function FormComponent() {
                 value: { userpic: user.picture, username: user.name },
               });
               setIsClicked(!isClicked);
+              setpopUpToggle(!popUpToggle);
             }}
           />
         </div>
