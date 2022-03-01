@@ -42,18 +42,18 @@ type Props = {
     tag: string;
     tag_id: number;
     label: string;
-    value: string;
+    value: number;
   }[];
 };
 
 function ListInputComponent({ onChange, options }: Props) {
   const tagOptions = options.map((option) => {
-    option = { ...option, label: option.tag, value: option.tag };
+    option = { ...option, label: option.tag, value: option.tag_id };
     return option;
   });
   return (
     <ListInput
-      options={options}
+      options={tagOptions}
       onChange={onChange}
       multiple
       maxTagCount="responsive"
