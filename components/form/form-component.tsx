@@ -8,6 +8,7 @@ import { useUser } from "@auth0/nextjs-auth0";
 import AuthButtonComponent from "../auth-button/auth-button-component";
 import { SingleValueType } from "rc-cascader/lib/Cascader";
 import PayFieldComponent from "../pay-field/pay-field-component";
+import PopUpComponent from "../pop-up/pop-up-component";
 
 const initialState: initialStateTypes = {
   accepted_user_id: null,
@@ -180,6 +181,7 @@ function FormComponent() {
   const [isClicked, setIsClicked] = useState(false);
   const { user } = useUser();
   const [tags, setTags] = useState<payload>([]);
+  const [popUpToggle, setpopUpToggle] = useState(false);
 
   useEffect(() => {
     async function getTags() {
@@ -283,6 +285,13 @@ function FormComponent() {
             }}
           />
           <PayFieldComponent dispatch={dispatch} />
+          {popUpToggle && (
+            <PopUpComponent
+              onClick={() => {
+                setpopUpToggle(!popUpToggle);
+              }}
+            />
+          )}
           <LongButtonComponent
             text="Submit"
             onClick={() => {
@@ -291,6 +300,7 @@ function FormComponent() {
                 value: { userpic: user.picture, username: user.name },
               });
               setIsClicked(!isClicked);
+              setpopUpToggle(!popUpToggle);
             }}
           />
         </div>
