@@ -19,9 +19,12 @@ function PayFieldComponent({ dispatch }: Props) {
     setText(e.target.value);
   }
 
-  function rateOnChange(value: SingleValueType[]) {
-    const str = value[0][0];
-    setRate(str);
+  function rateOnChange(value: SingleValueType) {
+    console.log(value);
+    if (value !== undefined) {
+      const str = value[0];
+      setRate(str);
+    }
   }
 
   useEffect(() => {

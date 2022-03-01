@@ -2,7 +2,7 @@ import { SmallListInput } from "./small-list-input-styled";
 import { SingleValueType } from "rc-cascader/lib/Cascader";
 
 type Props = {
-  onChange: (value: SingleValueType[]) => void;
+  onChange: (value: SingleValueType) => void;
 };
 
 const options = [
