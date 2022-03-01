@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
-export const Rating = styled.div``;
+export const Rating = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
-export const Star = styled.img``;
-
-export const NumberOfReviews = styled.p``;
+export const NumberOfReviews = styled.p`
+  margin-top: auto;
+  margin-bottom: auto;
+`;

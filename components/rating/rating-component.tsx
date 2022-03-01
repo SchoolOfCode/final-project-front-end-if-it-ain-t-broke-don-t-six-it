@@ -1,7 +1,6 @@
 import { Rating, NumberOfReviews } from "./rating-styled";
 import { Rate } from "antd";
 
-
 type Props = {
   rating: number;
   totalReviews: number;
@@ -10,7 +9,7 @@ type Props = {
 function RatingComponent({ rating, totalReviews }: Props) {
   return (
     <Rating>
-      <Rate disabled defaultValue={rating} />
+      <Rate disabled defaultValue={rating} allowHalf />
       <NumberOfReviews>({totalReviews})</NumberOfReviews>
     </Rating>
   );
