@@ -5,7 +5,7 @@ import SearchPageBoxComponent from "../search-page-box/search-page-box-component
 import { SearchPage } from "./search-page-styled";
 import { useEffect, useState } from "react";
 import ShowMoreButtonComponent from "../show-more-button/show-more-button-component";
-
+import RatingComponent from "../rating/rating-component";
 function SearchPageComponent() {
   const [toggleFetch, setToggleFetch] = useState(false);
   const [jobs, setJobs] = useState<any[]>([]);
@@ -42,6 +42,7 @@ function SearchPageComponent() {
           );
         }
       )}
+      <RatingComponent rating={1} totalReviews={5} />
       <ShowMoreButtonComponent onClick={() => setOffSet(offSet + 5)} />
     </SearchPage>
   );
