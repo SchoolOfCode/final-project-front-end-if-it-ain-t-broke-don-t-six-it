@@ -1,7 +1,7 @@
 import { ListingHeader } from "./listing-header-styled";
 
 type Props = {
-  text: string;
+  text: string | undefined;
 };
 
 function ListingHeaderComponent({ text }: Props) {

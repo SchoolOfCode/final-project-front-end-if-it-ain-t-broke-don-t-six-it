@@ -52,6 +52,7 @@ function SearchPageComponent() {
           );
         }
       )}
+
       <ShowMoreButtonComponent onClick={() => setOffSet(offSet + 5)} />
     </SearchPage>
   );

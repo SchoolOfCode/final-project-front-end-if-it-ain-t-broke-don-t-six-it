@@ -1,12 +1,32 @@
+import BioComponent from "../Bio/bio-component";
+import RatingComponent from "../rating/rating-component";
+
 import UserImageComponent from "../user-image/user-image-component";
+import UsernameComponent from "../username/username-component";
 import { UserInfo } from "./user-info-styled";
 
-function UserInfoComponent() {
-  return;
-  <UserInfo>
-    <UserImageComponent />;
-    
-  </UserInfo>;
+type Props = {
+  username: string | undefined;
+  bio: string | undefined;
+  rating: number | undefined;
+  numberOfReviews: number | undefined;
+  source: string | undefined;
+};
+function UserInfoComponent({
+  username,
+  bio,
+  source,
+  rating,
+  numberOfReviews,
+}: Props) {
+  return (
+    <UserInfo>
+      <UserImageComponent source={source} username={username} />;
+      <UsernameComponent username={username} />
+      <RatingComponent rating={rating} totalReviews={numberOfReviews} />
+      <BioComponent text={bio} />
+    </UserInfo>
+  );
 }
 
 export default UserInfoComponent;

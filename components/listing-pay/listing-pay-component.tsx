@@ -1,7 +1,7 @@
 import { ListingPay } from "./listing-pay-styled";
 
 type Props = {
-  text: number;
+  text: string;
 };
 
 function ListingPayComponent({ text }: Props) {
