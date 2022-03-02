@@ -1,27 +1,33 @@
 import FiltersButtonComponent from "../filters-button/filters-button-component";
-import LongButtonComponent from "../long-button/long-button-component";
 import LongSearchButtonComponent from "../long-search-button/long-search-button-component";
 import SearchFilterComponent from "../search-filter/search-filter-component";
 import { SearchPageBox } from "./search-page-box-styled";
+import { SingleValueType } from "rc-cascader/lib/Cascader";
 
 type Props = {
   onClick: () => void;
+  locationChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  keywordChange: (value: SingleValueType) => void;
 };
 
-function SearchPageBoxComponent({ onClick }: Props) {
-  function onChange(e: any) {
-    console.log("entered word", e.target.value);
-  }
-
+function SearchPageBoxComponent({
+  onClick,
+  locationChange,
+  keywordChange,
+}: Props) {
   return (
     <SearchPageBox>
       <SearchFilterComponent
+        toggle={true}
         filterWord="Location:"
-        onChange={(e) => onChange(e)}
+        locationChange={locationChange}
+        keywordChange={keywordChange}
       />
       <SearchFilterComponent
+        toggle={false}
         filterWord="Keywords:"
-        onChange={(e) => onChange(e)}
+        locationChange={locationChange}
+        keywordChange={keywordChange}
       />
       <LongSearchButtonComponent onClick={onClick} />
       <FiltersButtonComponent />

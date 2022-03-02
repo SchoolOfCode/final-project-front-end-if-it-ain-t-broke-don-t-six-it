@@ -10,11 +10,13 @@ function SearchPageComponent() {
   const [toggleFetch, setToggleFetch] = useState(false);
   const [jobs, setJobs] = useState<any[]>([]);
   const [offSet, setOffSet] = useState(0);
+  const [location, setLocation] = useState("");
+  const [word, setWord] = useState<string | number>("");
 
   useEffect(() => {
     async function getJobs() {
       const response = await fetch(
-        `https://oddjob.herokuapp.com/jobs?offSet=${offSet}`
+        `https://oddjob.herokuapp.com/jobs/${location}?keyword=${word}&offSet=${offSet}`
       );
       const data = await response.json();
       setJobs([...jobs, ...data.payload]);
@@ -27,7 +29,15 @@ function SearchPageComponent() {
     <SearchPage>
       <BackgroundImageComponent source="/gardening.jpeg" alt="gardening" />
       <PageHeaderComponent text="Search For Jobs" />
-      <SearchPageBoxComponent onClick={() => setToggleFetch(!toggleFetch)} />
+      <SearchPageBoxComponent
+        locationChange={(e) => {
+          setLocation(e.target.value);
+        }}
+        keywordChange={(value) => {
+          setWord(value[0]);
+        }}
+        onClick={() => setToggleFetch(!toggleFetch)}
+      />
       {jobs.map(
         ({ job_id, title, user_image, date, rate_of_pay, city, county }) => {
           return (
@@ -42,6 +52,7 @@ function SearchPageComponent() {
           );
         }
       )}
+
       <ShowMoreButtonComponent onClick={() => setOffSet(offSet + 5)} />
     </SearchPage>
   );

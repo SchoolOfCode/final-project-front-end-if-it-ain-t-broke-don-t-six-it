@@ -6,7 +6,7 @@
   font-family: "Pacifico";
   src: url("../public/pacifico/Pacifico-Regular.ttf");
 }
-
+@import "~antd/dist/antd.css";
 html,
 body {
   padding: 0;
