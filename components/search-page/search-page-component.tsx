@@ -6,20 +6,61 @@ import { SearchPage } from "./search-page-styled";
 import { useEffect, useState } from "react";
 import ShowMoreButtonComponent from "../show-more-button/show-more-button-component";
 
+type Props = {
+  accepted_user_id: null;
+  date: string;
+  description: string;
+  rate_of_pay: string;
+  requirement: string;
+  status: string;
+  title: string;
+  user_id: string | null | undefined;
+  user_image: string | null | undefined;
+  user_name: string | null | undefined;
+  user_rating: string;
+  number: number | null;
+  name: string;
+  street: string;
+  city: string;
+  county: string;
+  postcode: string;
+  tags: (string | number | null | undefined)[];
+  timestamp: string;
+  job_id: number;
+}[];
+
 function SearchPageComponent() {
   const [toggleFetch, setToggleFetch] = useState(false);
   const [jobs, setJobs] = useState<any[]>([]);
   const [offSet, setOffSet] = useState(0);
   const [location, setLocation] = useState("");
   const [word, setWord] = useState<string | number>("");
+  const [count, setCount] = useState(0);
+
+  function sorting(arr: Props) {
+    let existingJobIds = jobs.map((obj) => {
+      return obj.job_id;
+    });
+    console.log(existingJobIds);
+    let sortedArr = arr.filter((obj) => {
+      let found = existingJobIds.indexOf(obj.job_id);
+      if (found === -1) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    console.log(sortedArr);
+    return sortedArr;
+  }
 
   useEffect(() => {
     let url: string;
-    if (location === undefined && word === undefined) {
-      url = `https://oddjob.herokuapp.com/jobs`;
-    } else if (location === undefined) {
+    if (location === "" && word === "") {
+      url = `https://oddjob.herokuapp.com/jobs?ffSet=${offSet}`;
+    } else if (location === "") {
       url = `https://oddjob.herokuapp.com/jobs/?keyword=${word}&offSet=${offSet}`;
-    } else if (word === undefined) {
+    } else if (word === "") {
       url = `https://oddjob.herokuapp.com/jobs/${location}?offSet=${offSet}`;
     } else {
       url = `https://oddjob.herokuapp.com/jobs/${location}?keyword=${word}&offSet=${offSet}`;
@@ -27,11 +68,13 @@ function SearchPageComponent() {
     async function getJobs() {
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data);
-      setJobs([...jobs, ...data.payload]);
+      let sortedData = sorting(data.payload);
+      setJobs([...jobs, ...sortedData]);
     }
-    getJobs();
-    console.log("jobs", jobs);
+    setCount(count + 1);
+    if (count >= 1) {
+      getJobs();
+    }
   }, [toggleFetch, offSet]);
 
   return (
