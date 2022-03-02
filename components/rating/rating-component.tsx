@@ -2,8 +2,8 @@ import { Rating, NumberOfReviews } from "./rating-styled";
 import { Rate } from "antd";
 
 type Props = {
-  rating: number;
-  totalReviews: number;
+  rating: number | undefined;
+  totalReviews: number | undefined;
 };
 
 function RatingComponent({ rating, totalReviews }: Props) {

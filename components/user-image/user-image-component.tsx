@@ -2,7 +2,7 @@ import { UserImage } from "./user-image-styled";
 
 type Props = {
   source: string | undefined;
-  username: string;
+  username: string | undefined;
 };
 
 function UserImageComponent({ source, username }: Props) {

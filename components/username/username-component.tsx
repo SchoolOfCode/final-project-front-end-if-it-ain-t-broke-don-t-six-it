@@ -1,6 +1,6 @@
 import { Username } from "./username-styled";
 type Props = {
-  username: string;
+  username: string | undefined;
 };
 
 function UsernameComponent({ username }: Props) {

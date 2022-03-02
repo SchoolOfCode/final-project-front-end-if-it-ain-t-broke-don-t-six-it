@@ -1,11 +1,11 @@
 import { ListingDnT } from "./listing-dnt-styled";
 
 type Props = {
-    text: string;
+  text: string | undefined;
+};
+
+function ListingDnTComponent({ text }: Props) {
+  return <ListingDnT>{text}</ListingDnT>;
 }
 
-function ListingDnTComponent({text}:Props){
-    return <ListingDnT>{text}</ListingDnT>
-}
-
-export default ListingDnTComponent
+export default ListingDnTComponent;

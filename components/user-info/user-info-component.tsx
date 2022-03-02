@@ -6,11 +6,11 @@ import UsernameComponent from "../username/username-component";
 import { UserInfo } from "./user-info-styled";
 
 type Props = {
-  username: string;
-  bio: string;
-  rating: number;
-  numberOfReviews: number;
-  source: string;
+  username: string | undefined;
+  bio: string | undefined;
+  rating: number | undefined;
+  numberOfReviews: number | undefined;
+  source: string | undefined;
 };
 function UserInfoComponent({
   username,

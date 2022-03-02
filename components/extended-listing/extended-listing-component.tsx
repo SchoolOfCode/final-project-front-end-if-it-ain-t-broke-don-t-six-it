@@ -23,6 +23,31 @@ import { useEffect, useState } from "react";
 //   source: string;
 // };
 
+type Payload = {
+  jobTagsData: { job_id: number; tag_id: number; tag: string }[];
+  jobListingData: {
+    job_id: number;
+    title: string;
+    date: string;
+    rate_of_pay: string;
+    description: string;
+    requirements: string;
+    user_id: string;
+    accepted_user_id: string;
+    status: string;
+    user_image: string;
+    user_name: string;
+    rating: number;
+    Timestamp: string;
+    city: string;
+    county: string;
+    name: string;
+    number: number;
+    postcode: string;
+    street: string;
+  };
+};
+
 function ExtendedListingComponent(
   {
     // title,
@@ -38,34 +63,41 @@ function ExtendedListingComponent(
     // numberOfReviews,
   }
 ) {
-  const [jobId, setJobId] = useState();
-  const [jobListingData, setJobListingData] = useState({});
+  const [jobId, setJobId] = useState(1);
+  const [jobListingData, setJobListingData] = useState<Payload>();
 
   useEffect(() => {
     async function getJobData() {
-      const response = await fetch(
-        `https://oddjob.herokuapp.com/jobs/${jobId}`
-      );
+      const response = await fetch(`https:localhost:8000/jobs/${jobId}`);
       const data = await response.json();
       setJobListingData(data.payload);
     }
+    getJobData();
   }, []);
 
   return (
     <ExtendedListing>
-      <ListingHeaderComponent text={title} />
+      <ListingHeaderComponent text={jobListingData?.jobListingData.title} />
       <FavouriteButtonComponent />
-      <ListingLocationComponent text={location} />
-      <ListingDnTComponent text={dateAndTime} />
-      <ListingPayComponent text={rate_of_pay} />
-      <ListingDescriptionComponent description={description} />
-      <TagsComponent tags={tags} />
+      <ListingLocationComponent text={jobListingData?.jobListingData.city} />
+      <ListingDnTComponent
+        text={`${jobListingData?.jobListingData.date.substring(
+          0,
+          10
+        )} ${jobListingData?.jobListingData.date.substring(11, 16)}`}
+      />
+      <ListingPayComponent text={jobListingData?.jobListingData.rate_of_pay} />
+      <ListingDescriptionComponent
+        description={jobListingData?.jobListingData.description}
+      />
+      <TagsComponent tags={jobListingData?.jobTagsData} />
+
       <UserInfoComponent
-        username={username}
-        bio={bio}
-        source={source}
-        rating={rating}
-        numberOfReviews={numberOfReviews}
+        username={jobListingData?.jobListingData.user_name}
+        bio={"I'm great!"}
+        source={jobListingData?.jobListingData.user_image}
+        rating={5}
+        numberOfReviews={100}
       />
     </ExtendedListing>
   );
