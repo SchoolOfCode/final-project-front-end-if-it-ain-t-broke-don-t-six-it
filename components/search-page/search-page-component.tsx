@@ -14,10 +14,16 @@ function SearchPageComponent() {
   const [word, setWord] = useState<string | number>("");
 
   useEffect(() => {
+    let url: string;
+    if (location === undefined) {
+      url = `https://oddjob.herokuapp.com/jobs/?keyword=${word}&offSet=${offSet}`;
+    } else if (word === undefined) {
+      url = `https://oddjob.herokuapp.com/jobs/${location}?offSet=${offSet}`;
+    } else if {
+      url = `https://oddjob.herokuapp.com/jobs/${location}?keyword=${word}&offSet=${offSet}`;
+    }
     async function getJobs() {
-      const response = await fetch(
-        `https://oddjob.herokuapp.com/jobs/${location}?keyword=${word}&offSet=${offSet}`
-      );
+      const response = await fetch(url);
       const data = await response.json();
       setJobs([...jobs, ...data.payload]);
     }
