@@ -15,16 +15,19 @@ function SearchPageComponent() {
 
   useEffect(() => {
     let url: string;
-    if (location === undefined) {
+    if (location === undefined && word === undefined) {
+      url = `https://oddjob.herokuapp.com/jobs`;
+    } else if (location === undefined) {
       url = `https://oddjob.herokuapp.com/jobs/?keyword=${word}&offSet=${offSet}`;
     } else if (word === undefined) {
       url = `https://oddjob.herokuapp.com/jobs/${location}?offSet=${offSet}`;
-    } else if {
+    } else {
       url = `https://oddjob.herokuapp.com/jobs/${location}?keyword=${word}&offSet=${offSet}`;
     }
     async function getJobs() {
       const response = await fetch(url);
       const data = await response.json();
+      console.log(data);
       setJobs([...jobs, ...data.payload]);
     }
     getJobs();
