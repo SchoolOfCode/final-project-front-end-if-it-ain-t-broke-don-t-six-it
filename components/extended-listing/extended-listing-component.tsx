@@ -68,7 +68,7 @@ function ExtendedListingComponent(
 
   useEffect(() => {
     async function getJobData() {
-      const response = await fetch(`https:localhost:8000/jobs/${jobId}`);
+      const response = await fetch(`https:localhost:8000/jobs/job/${jobId}`);
       const data = await response.json();
       setJobListingData(data.payload);
     }

@@ -1,7 +1,7 @@
 import { ListingDescription } from "./listing-description-styled";
 
 type Props = {
-  description: string;
+  description: string | undefined;
 };
 
 function ListingDescriptionComponent({ description }: Props) {
