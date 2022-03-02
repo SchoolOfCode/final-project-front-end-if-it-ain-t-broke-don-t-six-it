@@ -6,19 +6,20 @@ function JobListingPageComponent() {
   return (
     <JobListingPage>
       <ExtendedListingComponent
-        title={}
-        rate_of_pay={}
-        tags={}
-        description={}
-        location={}
-        dateAndTime={}
-        username={}
-        bio={}
-        source={}
-        rating={}
-        numberOfReviews={}
+      // title={}
+      // rate_of_pay={}
+      // tags={}
+      // description={}
+      // location={}
+      // dateAndTime={}
+      // username={}
+      // bio={}
+      // source={}
+      // rating={}
+      // numberOfReviews={}
       />
       <OptionSection />
     </JobListingPage>
   );
 }
+export default JobListingPageComponent;

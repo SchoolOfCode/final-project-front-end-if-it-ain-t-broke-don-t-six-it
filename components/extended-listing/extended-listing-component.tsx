@@ -8,34 +8,49 @@ import ListingPayComponent from "../listing-pay/listing-pay-component";
 import TagsComponent from "../tags/tags-component";
 import UserInfoComponent from "../user-info/user-info-component";
 import { ExtendedListing } from "./extended-listing-styled";
+import { useEffect, useState } from "react";
+// type Props = {
+//   rate_of_pay: string;
+//   tags: { tag: string; tag_id: number }[];
+//   description: string;
+//   title: string;
+//   location: string;
+//   dateAndTime: string;
+//   username: string;
+//   bio: string;
+//   rating: number;
+//   numberOfReviews: number;
+//   source: string;
+// };
 
-type Props = {
-  rate_of_pay: string;
-  tags: { tag: string; tag_id: number }[];
-  description: string;
-  title: string;
-  location: string;
-  dateAndTime: string;
-  username: string;
-  bio: string;
-  rating: number;
-  numberOfReviews: number;
-  source: string;
-};
+function ExtendedListingComponent(
+  {
+    // title,
+    // rate_of_pay,
+    // tags,
+    // description,
+    // location,
+    // dateAndTime,
+    // username,
+    // bio,
+    // source,
+    // rating,
+    // numberOfReviews,
+  }
+) {
+  const [jobId, setJobId] = useState();
+  const [jobListingData, setJobListingData] = useState({});
 
-function ExtendedListingComponent({
-  title,
-  rate_of_pay,
-  tags,
-  description,
-  location,
-  dateAndTime,
-  username,
-  bio,
-  source,
-  rating,
-  numberOfReviews,
-}: Props) {
+  useEffect(() => {
+    async function getJobData() {
+      const response = await fetch(
+        `https://oddjob.herokuapp.com/jobs/${jobId}`
+      );
+      const data = await response.json();
+      setJobListingData(data.payload);
+    }
+  }, []);
+
   return (
     <ExtendedListing>
       <ListingHeaderComponent text={title} />
