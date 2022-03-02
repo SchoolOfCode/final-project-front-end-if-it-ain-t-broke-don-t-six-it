@@ -5,6 +5,7 @@ import SearchPageBoxComponent from "../search-page-box/search-page-box-component
 import { SearchPage } from "./search-page-styled";
 import { useEffect, useState } from "react";
 import ShowMoreButtonComponent from "../show-more-button/show-more-button-component";
+import { useRouter } from "next/router";
 
 type Props = {
   accepted_user_id: null;
@@ -33,15 +34,17 @@ function SearchPageComponent() {
   const [toggleFetch, setToggleFetch] = useState(false);
   const [jobs, setJobs] = useState<any[]>([]);
   const [offSet, setOffSet] = useState(0);
-  const [location, setLocation] = useState("");
-  const [word, setWord] = useState<string | number>("");
+  const [location, setLocation] = useState<string | string[] | undefined>("");
+  const [word, setWord] = useState<string | string[] | undefined | number>("");
   const [count, setCount] = useState(0);
+  const router = useRouter();
+
+  console.log(router.query);
 
   function sorting(arr: Props) {
     let existingJobIds = jobs.map((obj) => {
       return obj.job_id;
     });
-    console.log(existingJobIds);
     let sortedArr = arr.filter((obj) => {
       let found = existingJobIds.indexOf(obj.job_id);
       if (found === -1) {
@@ -50,11 +53,22 @@ function SearchPageComponent() {
         return false;
       }
     });
-    console.log(sortedArr);
     return sortedArr;
   }
 
+  // if (typeof router.query.location !== "undefined") {
+  //   while (count < 1) {
+  //     setCount(count + 1);
+  //   }
+  // }
+
   useEffect(() => {
+    if (typeof router.query.location !== "undefined") {
+      setLocation(router.query.location);
+      setWord(router.query.word);
+      setCount(1);
+    }
+
     let url: string;
     if (location === "" && word === "") {
       url = `https://oddjob.herokuapp.com/jobs?ffSet=${offSet}`;
@@ -71,11 +85,12 @@ function SearchPageComponent() {
       let sortedData = sorting(data.payload);
       setJobs([...jobs, ...sortedData]);
     }
-    setCount(count + 1);
-    if (count >= 1) {
-      getJobs();
-    }
-  }, [toggleFetch, offSet]);
+    getJobs();
+  }, [toggleFetch, offSet, count]);
+
+  useEffect(() => {
+    setJobs([]);
+  }, [word, location]);
 
   return (
     <SearchPage>

@@ -3,28 +3,46 @@ import LongButtonComponent from "../long-button/long-button-component";
 import SearchFilterComponent from "../search-filter/search-filter-component";
 import { SearchBox } from "./search-box-styled";
 import { useRouter } from "next/router";
+import { SingleValueType } from "rc-cascader/lib/Cascader";
 
 function SearchBoxComponent() {
   const [location, setLocation] = useState("");
-  const [keywords, setKeywords] = useState("");
+  const [word, setWord] = useState<string | number>("");
   const router = useRouter();
 
-  function handleSearch() {
-    console.log(location, keywords);
+  function locationChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setLocation(e.target.value);
   }
+  function keywordChange(value: SingleValueType) {
+    setWord(value[0]);
+  }
+
   return (
     <SearchBox>
       <SearchFilterComponent
+        toggle={true}
         filterWord="Location:"
-        onChange={(e) => setLocation(e.target.value)}
+        locationChange={locationChange}
+        keywordChange={keywordChange}
       />
       <SearchFilterComponent
+        toggle={false}
         filterWord="Keywords:"
-        onChange={(e) => setKeywords(e.target.value)}
+        locationChange={locationChange}
+        keywordChange={keywordChange}
       />
       <LongButtonComponent
         text="Find New Jobs"
-        onClick={() => router.push("/search")}
+        onClick={() =>
+          router.push({
+            pathname: "/search",
+            query: {
+              location: `${location}`,
+              word: `${word}`,
+              count: 1,
+            },
+          })
+        }
       />
     </SearchBox>
   );
