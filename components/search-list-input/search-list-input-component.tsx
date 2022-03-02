@@ -4,24 +4,29 @@ import { useState, useEffect } from "react";
 
 type Props = {
   onChange: (value: SingleValueType) => void;
+  tags: { tag_id: number; tag: string }[];
 };
 
-function SearchListInputComponent({ onChange }: Props) {
-  const [tags, setTags] = useState([]);
+function SearchListInputComponent({ onChange, tags }: Props) {
+  const [options, setOptions] = useState([{ label: "", value: 0 }]);
+
+  function populateOptions() {
+    const optionsArr = tags.map((obj) => {
+      return {
+        label: obj.tag.charAt(0).toUpperCase() + obj.tag.slice(1),
+        value: obj.tag,
+      };
+    });
+    return optionsArr;
+  }
 
   useEffect(() => {
-    async function getTags() {
-      const response = await fetch("https://oddjob.herokuapp.com/tags");
-      const data = await response.json();
-      setTags(data.payload);
-      console.log(data.payload);
-    }
-    getTags();
-  }, []);
+    setOptions(populateOptions());
+  }, [tags]);
 
   return (
     <SearchListInput
-      options={tags}
+      options={options}
       onChange={onChange}
       multiple={false}
       maxTagCount="responsive"

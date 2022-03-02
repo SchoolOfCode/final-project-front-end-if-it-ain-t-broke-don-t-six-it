@@ -112,6 +112,7 @@ interface submit {
   value: {
     userpic: string | null | undefined;
     username: string | null | undefined;
+    userid: string | null | undefined;
   };
 }
 interface resetState {
@@ -192,7 +193,7 @@ function reducer(
     case "submit":
       return {
         ...state,
-        user_id: action.value.username,
+        user_id: action.value.userid,
         user_image: action.value.userpic,
         user_name: action.value.username,
       };
@@ -205,9 +206,10 @@ type payload = [];
 function FormComponent() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [isClicked, setIsClicked] = useState(false);
-  const { user } = useUser();
   const [tags, setTags] = useState<payload>([]);
   const [popUpToggle, setpopUpToggle] = useState(false);
+  const [returnData, setReturnData] = useState(false);
+  const { user } = useUser();
 
   useEffect(() => {
     async function getTags() {
@@ -232,7 +234,7 @@ function FormComponent() {
         requestOptions
       );
       const data = await response.json();
-      console.log(data);
+      setReturnData(data.success);
       setIsClicked(false);
     }
     if (isClicked) {
@@ -302,7 +304,6 @@ function FormComponent() {
             options={tags}
             onChange={(e) => {
               console.log(e);
-
               dispatch({ type: "tags", value: e });
             }}
           />
@@ -325,6 +326,7 @@ function FormComponent() {
               onClick={() => {
                 setpopUpToggle(!popUpToggle);
               }}
+              isPosted={returnData}
             />
           )}
           <LongButtonComponent
@@ -332,7 +334,11 @@ function FormComponent() {
             onClick={() => {
               dispatch({
                 type: "submit",
-                value: { userpic: user.picture, username: user.name },
+                value: {
+                  userpic: user.picture,
+                  username: user.name,
+                  userid: user.sub,
+                },
               });
               setIsClicked(!isClicked);
               setpopUpToggle(!popUpToggle);
