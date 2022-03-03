@@ -82,8 +82,10 @@ function ExtendedListingComponent(
 
   return (
     <ExtendedListing>
-      {/* <ListingHeaderComponent text={jobListingData?.jobListingData.title} />
-      <FavouriteButtonComponent />
+      <div className="top-bar">
+        <ListingHeaderComponent text={jobListingData?.jobListingData.title} />
+        <FavouriteButtonComponent isExtended={true} />
+      </div>
       <ListingLocationComponent text={jobListingData?.jobListingData.city} />
       <ListingDnTComponent
         text={`${jobListingData?.jobListingData.date.substring(
@@ -101,22 +103,6 @@ function ExtendedListingComponent(
         username={jobListingData?.jobListingData.user_name}
         bio={"I'm great!"}
         source={jobListingData?.jobListingData.user_image}
-        rating={5}
-        numberOfReviews={100}
-      /> */}
-      <div className="top-bar">
-        <ListingHeaderComponent text="Baby-sitter" />
-        <FavouriteButtonComponent isExtended={true} />
-      </div>
-      <ListingLocationComponent text="Manchester" />
-      <ListingDnTComponent text="2022-03-03 09:54" />
-      <ListingPayComponent text="20 Full Pay" />
-      <ListingDescriptionComponent description="Look after my kids " />
-      <TagsComponent tags={tags} />
-      <UserInfoComponent
-        username="Ted Phillips"
-        bio="I'm great!"
-        source="/user-icon.png"
         rating={5}
         numberOfReviews={100}
       />
