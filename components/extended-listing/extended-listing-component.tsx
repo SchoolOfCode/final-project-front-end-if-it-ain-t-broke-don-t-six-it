@@ -31,21 +31,21 @@ type Payload = {
     date: string;
     rate_of_pay: string;
     description: string;
-    requirements: string;
+    requirement: string;
     user_id: string;
     accepted_user_id: string;
     status: string;
     user_image: string;
     user_name: string;
-    rating: number;
-    Timestamp: string;
+    user_rating: number;
+    timestamp: string;
     city: string;
     county: string;
     name: string;
     number: number;
     postcode: string;
     street: string;
-  };
+  }[];
 };
 
 function ExtendedListingComponent(
@@ -63,39 +63,46 @@ function ExtendedListingComponent(
     // numberOfReviews,
   }
 ) {
-  const [jobId, setJobId] = useState(1);
+  const [jobId, setJobId] = useState(2);
   const [jobListingData, setJobListingData] = useState<Payload>();
 
   useEffect(() => {
     async function getJobData() {
-      const response = await fetch(`https:localhost:8000/jobs/job/${jobId}`);
+      console.log("hello");
+
+      const response = await fetch(
+        `https://oddjob.herokuapp.com/jobs/job/${jobId}`
+      );
       const data = await response.json();
       setJobListingData(data.payload);
     }
+    console.log("hello");
     getJobData();
   }, []);
 
   return (
     <ExtendedListing>
-      <ListingHeaderComponent text={jobListingData?.jobListingData.title} />
+      <ListingHeaderComponent text={jobListingData?.jobListingData[0].title} />
       <FavouriteButtonComponent />
-      <ListingLocationComponent text={jobListingData?.jobListingData.city} />
+      <ListingLocationComponent text={jobListingData?.jobListingData[0].city} />
       <ListingDnTComponent
-        text={`${jobListingData?.jobListingData.date.substring(
+        text={`${jobListingData?.jobListingData[0].date.substring(
           0,
           10
-        )} ${jobListingData?.jobListingData.date.substring(11, 16)}`}
+        )} ${jobListingData?.jobListingData[0].date.substring(11, 16)}`}
       />
-      <ListingPayComponent text={jobListingData?.jobListingData.rate_of_pay} />
+      <ListingPayComponent
+        text={jobListingData?.jobListingData[0].rate_of_pay}
+      />
       <ListingDescriptionComponent
-        description={jobListingData?.jobListingData.description}
+        description={jobListingData?.jobListingData[0].description}
       />
       <TagsComponent tags={jobListingData?.jobTagsData} />
 
       <UserInfoComponent
-        username={jobListingData?.jobListingData.user_name}
+        username={jobListingData?.jobListingData[0].user_name}
         bio={"I'm great!"}
-        source={jobListingData?.jobListingData.user_image}
+        source={jobListingData?.jobListingData[0].user_image}
         rating={5}
         numberOfReviews={100}
       />

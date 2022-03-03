@@ -1,24 +1,18 @@
 import ExtendedListingComponent from "../extended-listing/extended-listing-component";
+import LongButtonComponent from "../long-button/long-button-component";
 import { OptionSection } from "../option-section/option-section-styled";
+import SmallButtonComponent from "../small-button/small-button-component";
 import { JobListingPage } from "./job-listing-page-styled";
 
 function JobListingPageComponent() {
   return (
     <JobListingPage>
-      <ExtendedListingComponent
-      // title={}
-      // rate_of_pay={}
-      // tags={}
-      // description={}
-      // location={}
-      // dateAndTime={}
-      // username={}
-      // bio={}
-      // source={}
-      // rating={}
-      // numberOfReviews={}
-      />
-      <OptionSection />
+      <ExtendedListingComponent />
+      <OptionSection>
+        <LongButtonComponent text={"Apply"} onClick={() => {}} />
+        <SmallButtonComponent text={"Back"} />
+        <SmallButtonComponent text={"Dashboard"} />
+      </OptionSection>
     </JobListingPage>
   );
 }
