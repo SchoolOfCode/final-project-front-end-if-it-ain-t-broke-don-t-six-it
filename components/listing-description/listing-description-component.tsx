@@ -5,7 +5,7 @@ type Props = {
 };
 
 function ListingDescriptionComponent({ description }: Props) {
-  return <ListingDescription>{description}</ListingDescription>;
+  return <ListingDescription>ⓘ {description}</ListingDescription>;
 }
 
 export default ListingDescriptionComponent;

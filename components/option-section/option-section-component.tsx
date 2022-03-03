@@ -1,13 +1,32 @@
-import { LongButton } from "../long-button/long-button-styled";
-import { SmallButton } from "../small-button/small-button-styled";
+import LongButtonComponent from "../long-button/long-button-component";
+import ShortButtonComponent from "../short-button/short-button-component";
 import { OptionSection } from "./option-section-styled";
 
 function OptionSectionComponent() {
   return (
     <OptionSection>
-      <LongButton />
-      <SmallButton />
-      <SmallButton />
+      <div className="flex-container">
+        <LongButtonComponent
+          text="Apply"
+          onClick={() => {
+            console.log("Apply");
+          }}
+        />
+        <div className="short-buttons">
+          <ShortButtonComponent
+            text="Back"
+            onClick={() => {
+              console.log("Back");
+            }}
+          />
+          <ShortButtonComponent
+            text="Dashboard"
+            onClick={() => {
+              console.log("Dashboard");
+            }}
+          />
+        </div>
+      </div>
     </OptionSection>
   );
 }

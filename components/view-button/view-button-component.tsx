@@ -1,7 +1,9 @@
 import { ViewButton } from "./view-button-styled";
-
-function ViewButtonComponent(){
-    return <ViewButton>View</ViewButton>
+type Props = {
+  onClick: () => void;
+};
+function ViewButtonComponent({ onClick }: Props) {
+  return <ViewButton onClick={onClick}>View</ViewButton>;
 }
 
-export default ViewButtonComponent
+export default ViewButtonComponent;
