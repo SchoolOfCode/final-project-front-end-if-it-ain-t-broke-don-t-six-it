@@ -1,7 +1,11 @@
-import { FavouriteButton, HeartImage } from "./favourite-button-styled";
+import { HeartImage } from "./favourite-button-styled";
 import { useState } from "react";
 
-function FavouriteButtonComponent() {
+type Props = {
+  isExtended: boolean;
+};
+
+function FavouriteButtonComponent({ isExtended }: Props) {
   const [toggle, setToggle] = useState(false);
 
   return (
@@ -9,6 +13,7 @@ function FavouriteButtonComponent() {
       onClick={() => setToggle(!toggle)}
       src={toggle ? "/heart-solid.svg" : "/heart-regular.svg"}
       alt="favourite button"
+      isExtended={isExtended}
     />
   );
 }

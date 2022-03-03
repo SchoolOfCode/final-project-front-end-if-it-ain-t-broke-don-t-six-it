@@ -36,22 +36,14 @@ type Payload = {
   }[];
 };
 
+
 type Props = {
   jobId: number | undefined;
 };
 function ExtendedListingComponent({ jobId }: Props) {
+    
   const [jobListingData, setJobListingData] = useState<Payload>();
-  // const [jobId, setJobId] = useState();
-  // const [toogle, setToogle] = useState(false);
-  // const router = useRouter();
-  // console.log(router.query.jobId);
-  // useEffect(() => {
-  //   if (router.query.jobId) {
-  //     setJobId(router.query.jobId);
-  //   } else {
-  //     setToogle(!toogle);
-  //   }
-  // }, [toogle]);
+
 
   useEffect(() => {
     async function getJobData() {
@@ -69,8 +61,10 @@ function ExtendedListingComponent({ jobId }: Props) {
 
   return (
     <ExtendedListing>
-      <ListingHeaderComponent text={jobListingData?.jobListingData[0].title} />
-      <FavouriteButtonComponent />
+      <div className="top-bar">
+        <ListingHeaderComponent text={jobListingData?.jobListingData[0].title} />
+        <FavouriteButtonComponent isExtended={true} />
+      </div>
       <ListingLocationComponent text={jobListingData?.jobListingData[0].city} />
       <ListingDnTComponent
         text={`${jobListingData?.jobListingData[0].date.substring(

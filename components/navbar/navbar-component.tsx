@@ -35,10 +35,12 @@ function NavBarComponent({ isMenu }: Props) {
       {user && (
         <Link href="/api/auth/logout">
           <a>
-            <UserImageComponent
-              source={user.picture ? user.picture : "/user-icon"}
-              username={user.name ? user.name : "generic user image"}
-            />
+            <div className="user-image">
+              <UserImageComponent
+                source={user.picture ? user.picture : "/user-icon"}
+                username={user.name ? user.name : "generic user image"}
+              />
+            </div>
           </a>
         </Link>
       )}

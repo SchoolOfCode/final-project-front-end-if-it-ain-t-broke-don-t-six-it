@@ -7,9 +7,15 @@ export const SearchBox = styled.div`
   top: 250px;
   left: 15px;
   border: solid 2px #1d201e;
-  height: 300px;
+  height: auto;
   width: 90%;
   margin: auto;
   position: absolute;
-  height: 280px;
+
+  .landing-button {
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 `;

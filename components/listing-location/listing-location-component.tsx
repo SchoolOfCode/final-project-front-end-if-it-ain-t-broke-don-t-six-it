@@ -5,7 +5,7 @@ type Props = {
 };
 
 function ListingLocationComponent({ text }: Props) {
-  return <ListingLocation>{text}</ListingLocation>;
+  return <ListingLocation>📍 {text}</ListingLocation>;
 }
 
 export default ListingLocationComponent;
