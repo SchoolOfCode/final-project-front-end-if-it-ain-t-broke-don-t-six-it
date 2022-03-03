@@ -2,16 +2,15 @@ import LongButtonComponent from "../long-button/long-button-component";
 import ShortButtonComponent from "../short-button/short-button-component";
 import { OptionSection } from "./option-section-styled";
 
-function OptionSectionComponent() {
+type Props = {
+  applyClick: () => void;
+};
+
+function OptionSectionComponent({ applyClick }: Props) {
   return (
     <OptionSection>
       <div className="flex-container">
-        <LongButtonComponent
-          text="Apply"
-          onClick={() => {
-            console.log("Apply");
-          }}
-        />
+        <LongButtonComponent text="Apply" onClick={applyClick} />
         <div className="short-buttons">
           <ShortButtonComponent
             text="Back"

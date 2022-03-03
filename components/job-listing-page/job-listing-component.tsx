@@ -1,11 +1,5 @@
 import ExtendedListingComponent from "../extended-listing/extended-listing-component";
-
-import LongButtonComponent from "../long-button/long-button-component";
-
 import OptionSectionComponent from "../option-section/option-section-component";
-
-import { OptionSection } from "../option-section/option-section-styled";
-import SmallButtonComponent from "../small-button/small-button-component";
 import { JobListingPage } from "./job-listing-page-styled";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -16,7 +10,7 @@ function JobListingPageComponent() {
   const [toggle, setToggle] = useState(false);
   const [toggleApply, setToggleApply] = useState(false);
   const router = useRouter();
-  const {user} = useUser();
+  const { user } = useUser();
   console.log(router.query.jobId);
   useEffect(() => {
     if (router.query.jobId) {
@@ -47,28 +41,18 @@ function JobListingPageComponent() {
     }
   }, [toggleApply]);
 
+  function onClick() {
+    if (user?.sub) {
+      setToggleApply(!toggleApply);
+    } else {
+      alert("Must be logged in to apply");
+    }
+  }
+
   return (
     <JobListingPage>
-
       <ExtendedListingComponent jobId={jobId} />
-      <OptionSection>
-        <LongButtonComponent
-          text={"Apply"}
-          onClick={() => {
-            if(user?.sub){
-              setToggleApply(!toggleApply);
-            }else{
-              alert("Must be logged in to apply");
-            }
-            
-          }}
-        />
-        <SmallButtonComponent text={"Back"} />
-        <SmallButtonComponent text={"Dashboard"} />
-      </OptionSection>
-
-      <OptionSectionComponent />
-
+      <OptionSectionComponent applyClick={onClick} />
     </JobListingPage>
   );
 }
