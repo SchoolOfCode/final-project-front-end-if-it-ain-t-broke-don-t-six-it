@@ -9,19 +9,7 @@ import TagsComponent from "../tags/tags-component";
 import UserInfoComponent from "../user-info/user-info-component";
 import { ExtendedListing } from "./extended-listing-styled";
 import { useEffect, useState } from "react";
-// type Props = {
-//   rate_of_pay: string;
-//   tags: { tag: string; tag_id: number }[];
-//   description: string;
-//   title: string;
-//   location: string;
-//   dateAndTime: string;
-//   username: string;
-//   bio: string;
-//   rating: number;
-//   numberOfReviews: number;
-//   source: string;
-// };
+import { useRouter } from "next/router";
 
 type Payload = {
   jobTagsData: { job_id: number; tag_id: number; tag: string }[];
@@ -48,23 +36,22 @@ type Payload = {
   }[];
 };
 
-function ExtendedListingComponent(
-  {
-    // title,
-    // rate_of_pay,
-    // tags,
-    // description,
-    // location,
-    // dateAndTime,
-    // username,
-    // bio,
-    // source,
-    // rating,
-    // numberOfReviews,
-  }
-) {
-  const [jobId, setJobId] = useState(2);
+type Props = {
+  jobId: number | undefined;
+};
+function ExtendedListingComponent({ jobId }: Props) {
   const [jobListingData, setJobListingData] = useState<Payload>();
+  // const [jobId, setJobId] = useState();
+  // const [toogle, setToogle] = useState(false);
+  // const router = useRouter();
+  // console.log(router.query.jobId);
+  // useEffect(() => {
+  //   if (router.query.jobId) {
+  //     setJobId(router.query.jobId);
+  //   } else {
+  //     setToogle(!toogle);
+  //   }
+  // }, [toogle]);
 
   useEffect(() => {
     async function getJobData() {
@@ -78,7 +65,7 @@ function ExtendedListingComponent(
     }
     console.log("hello");
     getJobData();
-  }, []);
+  }, [jobId]);
 
   return (
     <ExtendedListing>
