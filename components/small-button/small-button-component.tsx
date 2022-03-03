@@ -2,6 +2,7 @@ import { SmallButton } from "./small-button-styled";
 
 type Props = {
   text: string;
+
   onClick: () => void;
 };
 

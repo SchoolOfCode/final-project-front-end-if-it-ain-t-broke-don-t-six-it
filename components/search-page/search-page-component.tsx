@@ -110,6 +110,7 @@ function SearchPageComponent() {
           return (
             <ListingBoxComponent
               key={job_id}
+              job_id={job_id}
               title={title}
               source={user_image}
               address={`${city}, ${county}`}
