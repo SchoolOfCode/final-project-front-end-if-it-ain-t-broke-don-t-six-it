@@ -48,6 +48,11 @@ type Payload = {
   };
 };
 
+const tags = [
+  { tag: "babysitter", tag_id: 1, job_id: 1 },
+  { tag: "care", tag_id: 2, job_id: 2 },
+];
+
 function ExtendedListingComponent(
   {
     // title,
@@ -66,18 +71,18 @@ function ExtendedListingComponent(
   const [jobId, setJobId] = useState(1);
   const [jobListingData, setJobListingData] = useState<Payload>();
 
-  useEffect(() => {
-    async function getJobData() {
-      const response = await fetch(`https:localhost:8000/jobs/job/${jobId}`);
-      const data = await response.json();
-      setJobListingData(data.payload);
-    }
-    getJobData();
-  }, []);
+  // useEffect(() => {
+  //   async function getJobData() {
+  //     const response = await fetch(`https:localhost:8000/jobs/job/${jobId}`);
+  //     const data = await response.json();
+  //     setJobListingData(data.payload);
+  //   }
+  //   getJobData();
+  // }, []);
 
   return (
     <ExtendedListing>
-      <ListingHeaderComponent text={jobListingData?.jobListingData.title} />
+      {/* <ListingHeaderComponent text={jobListingData?.jobListingData.title} />
       <FavouriteButtonComponent />
       <ListingLocationComponent text={jobListingData?.jobListingData.city} />
       <ListingDnTComponent
@@ -96,6 +101,22 @@ function ExtendedListingComponent(
         username={jobListingData?.jobListingData.user_name}
         bio={"I'm great!"}
         source={jobListingData?.jobListingData.user_image}
+        rating={5}
+        numberOfReviews={100}
+      /> */}
+      <div className="top-bar">
+        <ListingHeaderComponent text="Baby-sitter" />
+        <FavouriteButtonComponent isExtended={true} />
+      </div>
+      <ListingLocationComponent text="Manchester" />
+      <ListingDnTComponent text="2022-03-03 09:54" />
+      <ListingPayComponent text="20 Full Pay" />
+      <ListingDescriptionComponent description="Look after my kids " />
+      <TagsComponent tags={tags} />
+      <UserInfoComponent
+        username="Ted Phillips"
+        bio="I'm great!"
+        source="/user-icon.png"
         rating={5}
         numberOfReviews={100}
       />

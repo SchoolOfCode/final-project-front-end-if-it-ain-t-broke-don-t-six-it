@@ -21,7 +21,7 @@ function UserInfoComponent({
 }: Props) {
   return (
     <UserInfo>
-      <UserImageComponent source={source} username={username} />;
+      <UserImageComponent source={source} username={username} />
       <UsernameComponent username={username} />
       <RatingComponent rating={rating} totalReviews={numberOfReviews} />
       <BioComponent text={bio} />
