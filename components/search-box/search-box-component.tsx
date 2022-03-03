@@ -31,19 +31,22 @@ function SearchBoxComponent() {
         locationChange={locationChange}
         keywordChange={keywordChange}
       />
-      <LongButtonComponent
-        text="Find New Jobs"
-        onClick={() =>
-          router.push({
-            pathname: "/search",
-            query: {
-              location: `${location}`,
-              word: `${word}`,
-              count: 1,
-            },
-          })
-        }
-      />
+
+      <div className="landing-button">
+        <LongButtonComponent
+          text="Find New Jobs"
+          onClick={() =>
+            router.push({
+              pathname: "/search",
+              query: {
+                location: `${location}`,
+                word: `${word}`,
+                count: 1,
+              },
+            })
+          }
+        />
+      </div>
     </SearchBox>
   );
 }

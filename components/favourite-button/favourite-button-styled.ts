@@ -11,6 +11,5 @@ export const HeartImage = styled.img<Props>`
   height: 25px;
   width: 25px;
 
-  ${(props) =>
-    props.isExtended ? `` : `margin: auto; position: relative; left: 35px;`}
+  ${(props) => (props.isExtended ? `` : `margin: auto; margin-right: 5px`)}
 `;
