@@ -13,9 +13,9 @@ function OptionSectionComponent({ applyClick }: Props) {
         <LongButtonComponent text="Apply" onClick={applyClick} />
         <div className="short-buttons">
           <ShortButtonComponent
-            text="Back"
+            text="Contact"
             onClick={() => {
-              console.log("Back");
+              console.log("Contact");
             }}
           />
           <ShortButtonComponent
