@@ -36,23 +36,19 @@ type Payload = {
   }[];
 };
 
-
 type Props = {
   jobId: number | undefined;
 };
 function ExtendedListingComponent({ jobId }: Props) {
-    
   const [jobListingData, setJobListingData] = useState<Payload>();
-
 
   useEffect(() => {
     async function getJobData() {
-      console.log("hello");
-
       const response = await fetch(
         `https://oddjob.herokuapp.com/jobs/job/${jobId}`
       );
       const data = await response.json();
+      console.log(data);
       setJobListingData(data.payload);
     }
     console.log("hello");
@@ -61,32 +57,40 @@ function ExtendedListingComponent({ jobId }: Props) {
 
   return (
     <ExtendedListing>
-      <div className="top-bar">
-        <ListingHeaderComponent text={jobListingData?.jobListingData[0].title} />
-        <FavouriteButtonComponent isExtended={true} />
-      </div>
-      <ListingLocationComponent text={jobListingData?.jobListingData[0].city} />
-      <ListingDnTComponent
-        text={`${jobListingData?.jobListingData[0].date.substring(
-          0,
-          10
-        )} ${jobListingData?.jobListingData[0].date.substring(11, 16)}`}
-      />
-      <ListingPayComponent
-        text={jobListingData?.jobListingData[0].rate_of_pay}
-      />
-      <ListingDescriptionComponent
-        description={jobListingData?.jobListingData[0].description}
-      />
-      <TagsComponent tags={jobListingData?.jobTagsData} />
+      {jobListingData?.jobListingData[0] !== undefined && (
+        <>
+          <div className="top-bar">
+            <ListingHeaderComponent
+              text={jobListingData?.jobListingData[0].title}
+            />
+            <FavouriteButtonComponent isExtended={true} />
+          </div>
+          <ListingLocationComponent
+            text={jobListingData?.jobListingData[0].city}
+          />
+          <ListingDnTComponent
+            text={`${jobListingData?.jobListingData[0].date.substring(
+              0,
+              10
+            )} ${jobListingData?.jobListingData[0].date.substring(11, 16)}`}
+          />
+          <ListingPayComponent
+            text={jobListingData?.jobListingData[0].rate_of_pay}
+          />
+          <ListingDescriptionComponent
+            description={jobListingData?.jobListingData[0].description}
+          />
+          <TagsComponent tags={jobListingData?.jobTagsData} />
 
-      <UserInfoComponent
-        username={jobListingData?.jobListingData[0].user_name}
-        bio={"I'm great!"}
-        source={jobListingData?.jobListingData[0].user_image}
-        rating={5}
-        numberOfReviews={100}
-      />
+          <UserInfoComponent
+            username={jobListingData?.jobListingData[0].user_name}
+            bio={"I'm great!"}
+            source={jobListingData?.jobListingData[0].user_image}
+            rating={5}
+            numberOfReviews={100}
+          />
+        </>
+      )}
     </ExtendedListing>
   );
 }
