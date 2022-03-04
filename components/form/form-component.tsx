@@ -9,6 +9,7 @@ import AuthButtonComponent from "../auth-button/auth-button-component";
 import { SingleValueType } from "rc-cascader/lib/Cascader";
 import PayFieldComponent from "../pay-field/pay-field-component";
 import PopUpComponent from "../pop-up/pop-up-component";
+import Link from "next/link";
 
 const initialState: initialStateTypes = {
   accepted_user_id: null,
@@ -246,9 +247,15 @@ function FormComponent() {
   return (
     <Form>
       {!user && (
-        <div>
-          <p>Please Log In to post a job:</p>
-          <AuthButtonComponent />
+        <div className="no-user">
+          <p className="no-user-text">Please Log In to post a job:</p>
+          <div className="no-user-button">
+            <Link href="/api/auth/login">
+              <a>
+                <AuthButtonComponent />
+              </a>
+            </Link>
+          </div>
         </div>
       )}
       {user && (
