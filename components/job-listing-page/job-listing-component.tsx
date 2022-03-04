@@ -34,7 +34,6 @@ function JobListingPageComponent() {
         }
       );
       const data = await response.json();
-      console.log(data);
     }
 
     if (toggleApply) {
