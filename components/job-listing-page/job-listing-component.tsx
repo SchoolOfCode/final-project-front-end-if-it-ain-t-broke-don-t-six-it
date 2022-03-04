@@ -6,15 +6,15 @@ import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";
 
 function JobListingPageComponent() {
-  const [jobId, setJobId] = useState();
+  const [jobId, setJobId] = useState(0);
   const [toggle, setToggle] = useState(false);
   const [toggleApply, setToggleApply] = useState(false);
   const router = useRouter();
   const { user } = useUser();
   console.log(router.query.jobId);
   useEffect(() => {
-    if (router.query.jobId) {
-      setJobId(router.query.jobId);
+    if (typeof router.query.jobId === "string") {
+      setJobId(Number(router.query.jobId));
     } else {
       setToggle(!toggle);
     }

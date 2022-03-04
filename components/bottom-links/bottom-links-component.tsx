@@ -7,12 +7,22 @@ function BottomLinksComponent() {
     <BottomLinks>
       <Link href="/comm-guidlines">
         <a>
-          <SmallButtonComponent text="Community Guidelines" />
+          <SmallButtonComponent
+            text="Community Guidelines"
+            onClick={() => {
+              console.log("Comm guidlines");
+            }}
+          />
         </a>
       </Link>
       <Link href="/t-and-cs">
         <a>
-          <SmallButtonComponent text="Terms & Conditions" />
+          <SmallButtonComponent
+            text="Terms & Conditions"
+            onClick={() => {
+              console.log("T&Cs");
+            }}
+          />
         </a>
       </Link>
     </BottomLinks>

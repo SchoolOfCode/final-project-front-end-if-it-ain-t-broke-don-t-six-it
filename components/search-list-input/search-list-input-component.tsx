@@ -8,7 +8,7 @@ type Props = {
 };
 
 function SearchListInputComponent({ onChange, tags }: Props) {
-  const [options, setOptions] = useState([{ label: "", value: 0 }]);
+  const [options, setOptions] = useState([{ label: "", value: "" }]);
 
   function populateOptions() {
     const optionsArr = tags.map((obj) => {

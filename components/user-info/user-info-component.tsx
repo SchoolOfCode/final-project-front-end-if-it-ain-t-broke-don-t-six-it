@@ -1,4 +1,4 @@
-import BioComponent from "../Bio/bio-component";
+import BioComponent from "../bio1/bio-component";
 import RatingComponent from "../rating/rating-component";
 
 import UserImageComponent from "../user-image/user-image-component";
