@@ -5,13 +5,14 @@ import type { Moment } from "moment";
 
 type Props = {
   onOk: (date: Moment) => void;
+  isRefreshed: boolean;
 };
 
-function DnTFieldComponent({ onOk }: Props) {
+function DnTFieldComponent({ onOk, isRefreshed }: Props) {
   return (
     <DnTField>
       <FieldHeaderComponent text="Date & Time: *" />
-      <DnTInputComponent onOk={onOk} />
+      <DnTInputComponent onOk={onOk} isRefreshed={isRefreshed} />
     </DnTField>
   );
 }

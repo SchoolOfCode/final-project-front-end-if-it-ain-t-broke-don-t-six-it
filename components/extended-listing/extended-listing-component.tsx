@@ -51,7 +51,6 @@ function ExtendedListingComponent({ jobId }: Props) {
       console.log(data);
       setJobListingData(data.payload);
     }
-    console.log("hello");
     getJobData();
   }, [jobId]);
 
@@ -77,9 +76,24 @@ function ExtendedListingComponent({ jobId }: Props) {
           <ListingPayComponent
             text={jobListingData?.jobListingData[0].rate_of_pay}
           />
-          <ListingDescriptionComponent
-            description={jobListingData?.jobListingData[0].description}
-          />
+          <div className="desc-req-wrapper">
+            <ListingDescriptionComponent
+              header="Description"
+              description={jobListingData?.jobListingData[0].description}
+            />
+            {jobListingData?.jobListingData[0].requirement !== "" && (
+              <ListingDescriptionComponent
+                header="Requirements"
+                description={jobListingData?.jobListingData[0].requirement}
+              />
+            )}
+            {jobListingData?.jobListingData[0].requirement === "" && (
+              <ListingDescriptionComponent
+                header="Requirements"
+                description="None"
+              />
+            )}
+          </div>
           <TagsComponent tags={jobListingData?.jobTagsData} />
 
           <UserInfoComponent

@@ -1,21 +1,45 @@
 import PopUpButtonComponent from "../pop-up-button/pop-up-button-component";
 import PopUpTextComponent from "../pop-up-text/pop-up-text-component";
 import { PopUp } from "./pop-up-styled";
+import { useRouter } from "next/router";
 
 type Props = {
-  onClick: () => void;
-  isPosted: boolean;
+  toggle: () => void;
+  isPosted: boolean | undefined;
+  job_id: number | undefined;
+  setIsRefreshed: (arg0: boolean) => void;
 };
 
-function PopUpComponent({ onClick, isPosted }: Props) {
+function PopUpComponent({ toggle, isPosted, job_id, setIsRefreshed }: Props) {
+  const router = useRouter();
   return (
     <PopUp>
       {isPosted && (
         <div>
           <PopUpTextComponent text="Job successfully posted" />
           <div>
-            <PopUpButtonComponent text="New Post" onClick={onClick} />
-            <PopUpButtonComponent text="View Job" onClick={onClick} />
+            <PopUpButtonComponent
+              text="New Post"
+              onClick={() => {
+                toggle();
+                setIsRefreshed(true);
+                () => {
+                  document.location.reload();
+                };
+              }}
+            />
+            <PopUpButtonComponent
+              text="View Job"
+              onClick={() => {
+                toggle();
+                router.push({
+                  pathname: "/job-listing",
+                  query: {
+                    jobId: job_id,
+                  },
+                });
+              }}
+            />
           </div>
         </div>
       )}
