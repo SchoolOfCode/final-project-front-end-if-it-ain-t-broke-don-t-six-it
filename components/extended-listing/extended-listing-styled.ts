@@ -13,4 +13,8 @@ export const ExtendedListing = styled.section`
     flex-direction: row;
     justify-content: space-between;
   }
+
+  .desc-req-wrapper {
+    margin-bottom: 10px;
+  }
 `;
