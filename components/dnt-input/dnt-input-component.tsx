@@ -6,12 +6,18 @@ import type { Moment } from "moment";
 
 type Props = {
   onOk: (date: Moment) => void;
+
+  isRefreshed: boolean;
 };
 
-function DnTInputComponent({ onOk }: Props) {
+function DnTInputComponent({ onOk, isRefreshed }: Props) {
   return (
     <SpaceComponent direction="vertical" size={12}>
-      <DnTInput showTime onOk={onOk} />
+      {isRefreshed ? (
+        <DnTInput showTime onOk={onOk} value={null} />
+      ) : (
+        <DnTInput showTime onOk={onOk} />
+      )}
     </SpaceComponent>
   );
 }

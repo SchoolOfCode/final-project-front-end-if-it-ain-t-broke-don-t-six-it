@@ -8,9 +8,10 @@ import type { ActionTypes } from "../form/form-component";
 
 type Props = {
   dispatch: (value: ActionTypes) => void;
+  stateValue: string;
 };
 
-function PayFieldComponent({ dispatch }: Props) {
+function PayFieldComponent({ dispatch, stateValue }: Props) {
   const [text, setText] = useState("");
   const [rate, setRate] = useState<string | number>("");
   const [combined, setCombined] = useState("");
@@ -40,7 +41,10 @@ function PayFieldComponent({ dispatch }: Props) {
       <FieldHeaderComponent text="Pay (£): * " />
 
       <div>
-        <SmallTextInputComponent onChange={(e) => textOnChange(e)} />
+        <SmallTextInputComponent
+          onChange={(e) => textOnChange(e)}
+          stateValue={stateValue}
+        />
         <SmallListInputComponent onChange={(value) => rateOnChange(value)} />
       </div>
     </PayField>
