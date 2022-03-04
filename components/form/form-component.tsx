@@ -354,6 +354,7 @@ function FormComponent() {
             }
           />
           <DnTFieldComponent
+            isRefreshed={isRefreshed}
             onOk={(date) => {
               console.log(date);
               dispatch({ type: "dateAndTime", value: date.toDate() });
@@ -365,6 +366,7 @@ function FormComponent() {
           />
           {popUpToggle && (
             <PopUpComponent
+              setIsRefreshed={setIsRefreshed}
               job_id={returnData?.payload.job.job_id}
               toggle={() => {
                 setpopUpToggle(!popUpToggle);
