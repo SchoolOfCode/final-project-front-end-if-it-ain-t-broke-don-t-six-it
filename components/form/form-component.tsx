@@ -139,6 +139,36 @@ interface resetState {
     tags: (string | number | null | undefined)[];
   };
 }
+interface returnData {
+  success: boolean;
+  payload: {
+    job: {
+      accepted_user_id: null;
+      date: string;
+      description: string;
+      job_id: number;
+      rate_of_pay: string;
+      requirement: string;
+      status: string;
+      timestamp: string;
+      title: string;
+      user_id: string;
+      user_image: string;
+      user_name: string;
+      user_rating: string;
+    };
+    location: {
+      city: string;
+      county: string;
+      job_id: number;
+      name: string;
+      number: null;
+      postcode: string;
+      street: string;
+    };
+    tags: [];
+  };
+}
 
 export type ActionTypes =
   | title
@@ -209,8 +239,9 @@ function FormComponent() {
   const [isClicked, setIsClicked] = useState(false);
   const [tags, setTags] = useState<payload>([]);
   const [popUpToggle, setpopUpToggle] = useState(false);
-  const [returnData, setReturnData] = useState(false);
+  const [returnData, setReturnData] = useState<returnData>();
   const { user } = useUser();
+  const [isRefreshed, setIsRefreshed] = useState(false);
 
   useEffect(() => {
     async function getTags() {
@@ -235,7 +266,8 @@ function FormComponent() {
         requestOptions
       );
       const data = await response.json();
-      setReturnData(data.success);
+      console.log(data);
+      setReturnData(data);
       setIsClicked(false);
     }
     if (isClicked) {
@@ -327,13 +359,17 @@ function FormComponent() {
               dispatch({ type: "dateAndTime", value: date.toDate() });
             }}
           />
-          <PayFieldComponent dispatch={dispatch} />
+          <PayFieldComponent
+            dispatch={dispatch}
+            stateValue={state.rate_of_pay}
+          />
           {popUpToggle && (
             <PopUpComponent
-              onClick={() => {
+              job_id={returnData?.payload.job.job_id}
+              toggle={() => {
                 setpopUpToggle(!popUpToggle);
               }}
-              isPosted={returnData}
+              isPosted={returnData?.success}
             />
           )}
           <LongButtonComponent
