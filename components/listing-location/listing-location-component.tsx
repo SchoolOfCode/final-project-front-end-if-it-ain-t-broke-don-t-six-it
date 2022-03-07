@@ -5,7 +5,12 @@ type Props = {
 };
 
 function ListingLocationComponent({ text }: Props) {
-  return <ListingLocation>📍 {text}</ListingLocation>;
+  return (
+    <ListingLocation>
+      <img className="location-pin" src="/location.png" alt="location pin" />
+      {text}
+    </ListingLocation>
+  );
 }
 
 export default ListingLocationComponent;

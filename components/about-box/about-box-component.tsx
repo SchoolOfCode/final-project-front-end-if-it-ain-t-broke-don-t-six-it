@@ -4,14 +4,14 @@ import { AboutBox } from "./about-box-styled";
 
 type Props = {
   title: String;
-  description: String;
 };
 
-function AboutBoxComponent({ title, description }: Props) {
-  return <AboutBox>
-     <AboutBoxSubHeaderComponent title={title}/>
-    <AboutBoxTextComponent description={description}/>
-  </AboutBox>;
+function AboutBoxComponent({ title }: Props) {
+  return (
+    <AboutBox>
+      <AboutBoxSubHeaderComponent title={title} />
+    </AboutBox>
+  );
 }
 
 export default AboutBoxComponent;

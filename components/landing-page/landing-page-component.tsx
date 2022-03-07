@@ -2,27 +2,41 @@ import AboutBoxComponent from "../about-box/about-box-component";
 import SearchBoxComponent from "../search-box/search-box-component";
 import { LandingPage, AboutSection } from "./landing-page-styled";
 import SliderComponent from "../slider/slider-component";
+import ListingBoxComponent from "../listing-box/listing-box-component";
+import PageHeaderComponent from "../page-header/page-header-component";
 
 function LandingPageComponent() {
   return (
     <LandingPage>
       <SliderComponent />
       <SearchBoxComponent />
-
-      <AboutSection>
-        <AboutBoxComponent
-          title="Find Work in Minutes"
-          description="With OddJob work is a hats throw away😉. "
+      <div className="listing-container">
+        <PageHeaderComponent text="Latest Jobs" />
+        <ListingBoxComponent
+          title="English Tutor"
+          source="/user-icon.png"
+          address="Oldham, London"
+          date="25/03/2022 10:00"
+          pay="50 Full Pay"
+          job_id={0}
         />
-        <AboutBoxComponent
-          title="Info"
-          description="OddJob allows users to find work that works for them and their schedule."
+        <ListingBoxComponent
+          title="Dog Walking"
+          source="/user-icon.png"
+          address="Trent, Nottingham"
+          date="24/03/2022 13:00"
+          pay="10 Per Hour"
+          job_id={1}
         />
-        <AboutBoxComponent
-          title="Info"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce purus sapien, tincidunt sed semper sed, vestibulum ac eros."
+        <ListingBoxComponent
+          title="House Sitting"
+          source="/user-icon.png"
+          address="Loughborough, Leicstershire"
+          date="25/03/2022 16:00"
+          pay="50 Full Pay"
+          job_id={2}
         />
-      </AboutSection>
+      </div>
     </LandingPage>
   );
 }

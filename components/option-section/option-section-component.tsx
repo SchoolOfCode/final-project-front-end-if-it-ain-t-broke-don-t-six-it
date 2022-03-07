@@ -14,7 +14,15 @@ function OptionSectionComponent({ applyClick }: Props) {
   return (
     <OptionSection>
       <div className="flex-container">
-        {user && <LongButtonComponent text="Apply" onClick={applyClick} />}
+        {user && (
+          <>
+            <LongButtonComponent text="Apply" onClick={applyClick} />
+            <div className="short-buttons">
+              <ShortButtonComponent text="Contact" onClick={() => {}} />
+              <ShortButtonComponent text="Dashboard" onClick={() => {}} />
+            </div>
+          </>
+        )}
         {!user && (
           <Link href="/api/auth/login">
             <a>
@@ -27,20 +35,6 @@ function OptionSectionComponent({ applyClick }: Props) {
             </a>
           </Link>
         )}
-        <div className="short-buttons">
-          <ShortButtonComponent
-            text="Contact"
-            onClick={() => {
-              console.log("Contact");
-            }}
-          />
-          <ShortButtonComponent
-            text="Dashboard"
-            onClick={() => {
-              console.log("Dashboard");
-            }}
-          />
-        </div>
       </div>
     </OptionSection>
   );

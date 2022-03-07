@@ -12,4 +12,5 @@ export const PageHeader = styled.h1`
   margin-top: -20px;
   z-index: 1;
   padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 `;
