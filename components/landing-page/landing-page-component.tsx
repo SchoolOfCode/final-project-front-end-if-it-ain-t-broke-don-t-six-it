@@ -1,16 +1,14 @@
 import AboutBoxComponent from "../about-box/about-box-component";
-import BackgroundImageComponent from "../background-image/background-image-component";
 import SearchBoxComponent from "../search-box/search-box-component";
 import { LandingPage, AboutSection } from "./landing-page-styled";
+import SliderComponent from "../slider/slider-component";
 
 function LandingPageComponent() {
   return (
     <LandingPage>
-      <BackgroundImageComponent
-        source="/delivery-driver.jpg"
-        alt="delivery-driver"
-      />
+      <SliderComponent />
       <SearchBoxComponent />
+
       <AboutSection>
         <AboutBoxComponent
           title="Find Work in Minutes"
