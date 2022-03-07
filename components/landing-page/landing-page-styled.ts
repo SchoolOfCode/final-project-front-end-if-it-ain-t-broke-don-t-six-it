@@ -8,5 +8,5 @@ export const LandingPage = styled.main`
 `;
 
 export const AboutSection = styled.div`
-  margin-top: 100px;
+  margin-top: 320px;
 `;
