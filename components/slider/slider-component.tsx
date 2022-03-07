@@ -31,10 +31,10 @@ function SliderComponent() {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 1000);
+    }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [current]);
 
   return (
     <Slider>
