@@ -4,11 +4,13 @@ import { JobListingPage } from "./job-listing-page-styled";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";
+import JLPopUpComponent from "../jl-pop-up/jl-pop-up-component";
 
 function JobListingPageComponent() {
   const [jobId, setJobId] = useState(0);
   const [toggle, setToggle] = useState(false);
   const [toggleApply, setToggleApply] = useState(false);
+  const [togglePU, setTogglePU] = useState(false);
   const router = useRouter();
   const { user } = useUser();
 
@@ -42,18 +44,23 @@ function JobListingPageComponent() {
     }
   }, [toggleApply]);
 
-  function onClick() {
-    if (user?.sub) {
-      setToggleApply(!toggleApply);
-    } else {
-      alert("Must be logged in to apply");
-    }
-  }
-
   return (
     <JobListingPage>
       <ExtendedListingComponent jobId={jobId} />
-      <OptionSectionComponent applyClick={onClick} />
+      {togglePU && (
+        <JLPopUpComponent
+          setToggle={setTogglePU}
+          setApply={setToggleApply}
+          apply={toggleApply}
+        />
+      )}
+      {!togglePU && (
+        <OptionSectionComponent
+          applyClick={() => {
+            setTogglePU(true);
+          }}
+        />
+      )}
     </JobListingPage>
   );
 }

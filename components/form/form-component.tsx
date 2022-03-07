@@ -374,21 +374,23 @@ function FormComponent() {
               isPosted={returnData?.success}
             />
           )}
-          <LongButtonComponent
-            text="Submit"
-            onClick={() => {
-              dispatch({
-                type: "submit",
-                value: {
-                  userpic: user.picture,
-                  username: user.name,
-                  userid: user.sub,
-                },
-              });
-              setIsClicked(!isClicked);
-              setpopUpToggle(!popUpToggle);
-            }}
-          />
+          {!popUpToggle && (
+            <LongButtonComponent
+              text="Submit"
+              onClick={() => {
+                dispatch({
+                  type: "submit",
+                  value: {
+                    userpic: user.picture,
+                    username: user.name,
+                    userid: user.sub,
+                  },
+                });
+                setIsClicked(!isClicked);
+                setpopUpToggle(!popUpToggle);
+              }}
+            />
+          )}
         </div>
       )}
     </Form>
