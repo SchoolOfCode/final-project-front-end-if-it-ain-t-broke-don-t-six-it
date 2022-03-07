@@ -53,7 +53,12 @@ function JobListingPageComponent() {
   return (
     <JobListingPage>
       <ExtendedListingComponent jobId={jobId} />
-      <OptionSectionComponent applyClick={onClick} />
+      <OptionSectionComponent
+        longButtonText="Log In to Apply"
+        firstShortButtonText="Contact"
+        secondShortButtonTecx="Dashboard"
+        applyClick={onClick}
+      />
     </JobListingPage>
   );
 }

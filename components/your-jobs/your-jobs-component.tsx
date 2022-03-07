@@ -11,7 +11,7 @@ function YourJobsComponent() {
   const [postedJobs, setPostedJobs] = useState();
 
   return (
-    <YourJobs>
+    <YourJobs id="yourJobs">
       <JobsSliderComponent
         onClick={(e) => {
           setfocusOn(e.target.innerText);

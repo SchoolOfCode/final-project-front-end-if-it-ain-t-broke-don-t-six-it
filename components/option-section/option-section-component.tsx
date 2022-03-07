@@ -6,9 +6,12 @@ import Link from "next/link";
 
 type Props = {
   applyClick: () => void;
+  longButtonText: string;
+  firstShortButtonText: string;
+  secondShortButtonTecx:string
 };
 
-function OptionSectionComponent({ applyClick }: Props) {
+function OptionSectionComponent({ applyClick,longButtonText,firstShortButtonText,secondShortButtonTecx }: Props) {
   const { user } = useUser();
 
   return (
@@ -19,7 +22,7 @@ function OptionSectionComponent({ applyClick }: Props) {
           <Link href="/api/auth/login">
             <a>
               <LongButtonComponent
-                text="Log In to Apply"
+                text={longButtonText}
                 onClick={() => {
                   console.log("log in to apply");
                 }}
@@ -29,13 +32,13 @@ function OptionSectionComponent({ applyClick }: Props) {
         )}
         <div className="short-buttons">
           <ShortButtonComponent
-            text="Contact"
+            text={firstShortButtonText}
             onClick={() => {
               console.log("Contact");
             }}
           />
           <ShortButtonComponent
-            text="Dashboard"
+            text={secondShortButtonTecx}
             onClick={() => {
               console.log("Dashboard");
             }}
