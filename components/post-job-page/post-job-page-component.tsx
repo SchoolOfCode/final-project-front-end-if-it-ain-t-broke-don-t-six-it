@@ -10,7 +10,7 @@ function PostJobPageComponent() {
         source="/domestic-cleaning.jpg"
         alt="domestic cleaner"
       />
-      <PageHeaderComponent text="Post Job Listing" />
+      <PageHeaderComponent text="Post New Job" />
       <FormComponent />
     </PostJobPage>
   );

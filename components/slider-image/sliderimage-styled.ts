@@ -1,9 +1,24 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const fade = keyframes`
+0% {
+opacity: 0.2;
+}
+15% {
+opacity: 1;
+}
+85%{
+opacity: 1;
+}
+100% {
+opacity: 0.2;
+}`;
 
 export const Container = styled.div`
   position: absolute;
   top: 60px;
   z-index: -1;
+  animation: ${fade} 5s 1;
 
   .text {
     position: absolute;

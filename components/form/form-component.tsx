@@ -292,78 +292,82 @@ function FormComponent() {
       )}
       {user && (
         <div>
-          <FieldComponent
-            name="Job Title: *"
-            value={state.title}
-            onChange={(e) => dispatch({ type: "title", value: e.target.value })}
-          />
-          <FieldComponent
-            value={state.number ? state.number : state.name}
-            name="Address Number/Name: *"
-            onChange={(e) =>
-              dispatch({ type: "number/name", value: e.target.value })
-            }
-          />
-          <FieldComponent
-            name="Street: *"
-            value={state.street}
-            onChange={(e) =>
-              dispatch({ type: "street", value: e.target.value })
-            }
-          />
-          <FieldComponent
-            value={state.city}
-            name="Town/City: *"
-            onChange={(e) =>
-              dispatch({ type: "town/city", value: e.target.value })
-            }
-          />
-          <FieldComponent
-            value={state.county}
-            name="County: *"
-            onChange={(e) =>
-              dispatch({ type: "county", value: e.target.value })
-            }
-          />
-          <FieldComponent
-            value={state.postcode}
-            name="Postcode: *"
-            onChange={(e) =>
-              dispatch({ type: "postcode", value: e.target.value })
-            }
-          />
-          <FieldComponent
-            value={state.description}
-            name="Description: *"
-            onChange={(e) =>
-              dispatch({ type: "description", value: e.target.value })
-            }
-          />
-          <ListFieldComponent
-            options={tags}
-            onChange={(e) => {
-              console.log(e);
-              dispatch({ type: "tags", value: e });
-            }}
-          />
-          <FieldComponent
-            value={state.requirement}
-            name="Requirements: "
-            onChange={(e) =>
-              dispatch({ type: "requirements", value: e.target.value })
-            }
-          />
-          <DnTFieldComponent
-            isRefreshed={isRefreshed}
-            onOk={(date) => {
-              console.log(date);
-              dispatch({ type: "dateAndTime", value: date.toDate() });
-            }}
-          />
-          <PayFieldComponent
-            dispatch={dispatch}
-            stateValue={state.rate_of_pay}
-          />
+          <div className="fields">
+            <FieldComponent
+              name="Job Title: *"
+              value={state.title}
+              onChange={(e) =>
+                dispatch({ type: "title", value: e.target.value })
+              }
+            />
+            <FieldComponent
+              value={state.number ? state.number : state.name}
+              name="Address Number/Name: *"
+              onChange={(e) =>
+                dispatch({ type: "number/name", value: e.target.value })
+              }
+            />
+            <FieldComponent
+              name="Street: *"
+              value={state.street}
+              onChange={(e) =>
+                dispatch({ type: "street", value: e.target.value })
+              }
+            />
+            <FieldComponent
+              value={state.city}
+              name="Town/City: *"
+              onChange={(e) =>
+                dispatch({ type: "town/city", value: e.target.value })
+              }
+            />
+            <FieldComponent
+              value={state.county}
+              name="County: *"
+              onChange={(e) =>
+                dispatch({ type: "county", value: e.target.value })
+              }
+            />
+            <FieldComponent
+              value={state.postcode}
+              name="Postcode: *"
+              onChange={(e) =>
+                dispatch({ type: "postcode", value: e.target.value })
+              }
+            />
+            <FieldComponent
+              value={state.description}
+              name="Description: *"
+              onChange={(e) =>
+                dispatch({ type: "description", value: e.target.value })
+              }
+            />
+            <ListFieldComponent
+              options={tags}
+              onChange={(e) => {
+                console.log(e);
+                dispatch({ type: "tags", value: e });
+              }}
+            />
+            <FieldComponent
+              value={state.requirement}
+              name="Requirements: "
+              onChange={(e) =>
+                dispatch({ type: "requirements", value: e.target.value })
+              }
+            />
+            <DnTFieldComponent
+              isRefreshed={isRefreshed}
+              onOk={(date) => {
+                console.log(date);
+                dispatch({ type: "dateAndTime", value: date.toDate() });
+              }}
+            />
+            <PayFieldComponent
+              dispatch={dispatch}
+              stateValue={state.rate_of_pay}
+            />
+          </div>
           {popUpToggle && (
             <PopUpComponent
               setIsRefreshed={setIsRefreshed}

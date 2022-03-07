@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import NavBarComponent from "../components/navbar/navbar-component";
 import LandingPageComponent from "../components/landing-page/landing-page-component";
-
+import FooterComponent from "../components/footer/footer-component";
 
 const Home: NextPage = () => {
   return (
@@ -14,6 +14,7 @@ const Home: NextPage = () => {
       </Head>
       <NavBarComponent isMenu={false} />
       <LandingPageComponent />
+      <FooterComponent />
     </div>
   );
 };

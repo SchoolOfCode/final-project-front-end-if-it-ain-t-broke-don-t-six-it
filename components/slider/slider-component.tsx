@@ -1,6 +1,6 @@
 import SliderimageComponent from "../slider-image/sliderimage-component";
 import { Slider } from "./slider-styled";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 
 let imageArray = [
@@ -27,6 +27,14 @@ function SliderComponent() {
   function prevSlide() {
     setCurrent(current === 0 ? length - 1 : current - 1);
   }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [current]);
 
   return (
     <Slider>

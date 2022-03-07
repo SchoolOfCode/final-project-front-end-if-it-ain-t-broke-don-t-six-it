@@ -40,7 +40,7 @@ function PayFieldComponent({ dispatch, stateValue }: Props) {
     <PayField>
       <FieldHeaderComponent text="Pay (£): * " />
 
-      <div>
+      <div className="field-container">
         <SmallTextInputComponent
           onChange={(e) => textOnChange(e)}
           stateValue={stateValue}
