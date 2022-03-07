@@ -6,8 +6,10 @@ import SectionBoxComponent from "../section-box/Section-box-component";
 import YourJobsComponent from "../your-jobs/your-jobs-component";
 import OptionSectionComponent from "../option-section/option-section-component";
 import { Dashboard } from "./Dashboard-page-styled";
+import { useUser } from "@auth0/nextjs-auth0";
 
 function DashboardComponent() {
+  const { user } = useUser();
   return (
     <Dashboard>
       <BackgroundImageComponent
@@ -15,10 +17,15 @@ function DashboardComponent() {
         alt={"someone cleaning"}
       />
       <PageHeaderComponent text="Dashboard" />
-      <SectionBoxComponent />
-      <YourJobsComponent  />
-      <FavouriteSectionComponent />
-      <DashboardOptionSectionComponent />
+
+      {user && (
+        <>
+          <SectionBoxComponent />
+          <YourJobsComponent />
+          <FavouriteSectionComponent />
+          <DashboardOptionSectionComponent />
+        </>
+      )}
     </Dashboard>
   );
 }
