@@ -16,7 +16,7 @@ function AcceptanceConfirmationComponent({ name, accept, onClick }: Props) {
       </h3>
       <div className="button-section">
         <button onClick={onClick} className="confirm">
-          Yes
+          Submit
         </button>
         <button onClick={onClick} className="decline">
           Cancel
