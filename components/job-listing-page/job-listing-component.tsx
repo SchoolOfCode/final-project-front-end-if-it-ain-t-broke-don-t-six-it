@@ -12,8 +12,7 @@ function JobListingPageComponent() {
   const router = useRouter();
   const { user } = useUser();
 
-  console.log(typeof router.query.jobId);
-
+ 
   useEffect(() => {
     if (typeof router.query.jobId === "string") {
       setJobId(Number(router.query.jobId));
@@ -53,6 +52,7 @@ function JobListingPageComponent() {
   return (
     <JobListingPage>
       <ExtendedListingComponent jobId={jobId} />
+
       <OptionSectionComponent
         longButtonText="Log In to Apply"
         firstShortButtonText="Contact"

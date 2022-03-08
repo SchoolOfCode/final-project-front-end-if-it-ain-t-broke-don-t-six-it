@@ -23,7 +23,7 @@ function ButtonDivComponent() {
       </Link>
       <Link href="/post-job" passHref>
         <ShortButtonComponent
-          text="Post Job Listing"
+          text="Post Job"
           onClick={() => {
             console.log("here");
           }}

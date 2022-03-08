@@ -26,7 +26,7 @@ function DashboardOptionSectionComponent() {
 
           <Link href="post-job" passHref>
             <ShortButtonComponent
-              text="Post Job Listing"
+              text="Post Job"
               onClick={() => {
                 console.log("post job listing");
               }}

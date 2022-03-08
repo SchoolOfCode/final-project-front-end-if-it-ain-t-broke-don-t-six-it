@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const DashboardOptionSection = styled.section`
-  position: fixed;
   bottom: 0;
   width: 100%;
   margin: auto;

@@ -4,7 +4,7 @@ import { Top } from "./top-styled";
 
 type Props = {
   text: string;
-  source: string;
+  source: string | undefined | null;
 };
 
 function TopComponent({ text, source }: Props) {

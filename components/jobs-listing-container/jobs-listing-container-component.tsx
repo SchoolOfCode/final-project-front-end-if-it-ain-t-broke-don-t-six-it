@@ -2,21 +2,36 @@ import { JobsListingContainer } from "./jobs-listing-container-styled";
 import ListingBoxComponent from "../listing-box/listing-box-component";
 
 type Props = {
-  listOfJobs: {
-    title: string;
-    user_image: string;
-    city: string;
-    county: string;
-    date: string;
-    rate_of_pay: string;
-    job_id: number;
-  }[];
+  listOfJobs:
+    | {
+        accepted_user_id: null;
+        date: string;
+        description: string;
+        rate_of_pay: string;
+        requirement: string;
+        status: string;
+        title: string;
+        user_id: string | null | undefined;
+        user_image: string | null | undefined;
+        user_name: string | null | undefined;
+        user_rating: string;
+        number: number | null;
+        name: string;
+        street: string;
+        city: string;
+        county: string;
+        postcode: string;
+        tags: (string | number | null | undefined)[];
+        timestamp: string;
+        job_id: number;
+      }[]
+    | undefined;
 };
 
 function JobsListingContainerComponent({ listOfJobs }: Props) {
   return (
     <JobsListingContainer>
-      {listOfJobs.map(
+      {listOfJobs?.map(
         ({ job_id, title, user_image, date, rate_of_pay, city, county }) => {
           return (
             <ListingBoxComponent

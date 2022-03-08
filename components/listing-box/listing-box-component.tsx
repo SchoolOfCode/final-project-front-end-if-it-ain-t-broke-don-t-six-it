@@ -6,7 +6,7 @@ import BottomComponent from "../bottom/bottom-component";
 
 type Props = {
   title: string;
-  source: string;
+  source: string | undefined | null;
   address: string;
   date: string;
   pay: string;
