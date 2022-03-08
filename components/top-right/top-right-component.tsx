@@ -3,7 +3,7 @@ import UserImageComponent from "../user-image/user-image-component";
 import { TopRight } from "./top-right-styled";
 
 type Props = {
-  source: string;
+  source: string | undefined | null;
 };
 
 function TopRightComponent({ source }: Props) {
