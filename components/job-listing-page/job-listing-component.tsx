@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";
 import JLPopUpComponent from "../jl-pop-up/jl-pop-up-component";
+import ApplicantSectionComponent from "../applicant-section/applicant-section-component";
 
 function JobListingPageComponent() {
   const [jobId, setJobId] = useState(0);
@@ -14,7 +15,8 @@ function JobListingPageComponent() {
   const router = useRouter();
   const { user } = useUser();
 
- 
+  const posterId = router.query.userId;
+  console.log(posterId);
   useEffect(() => {
     if (typeof router.query.jobId === "string") {
       setJobId(Number(router.query.jobId));
@@ -43,9 +45,16 @@ function JobListingPageComponent() {
     }
   }, [toggleApply]);
 
+  const applicants = [
+    { name: "John Doe", userImage: "/user-icon.png", rating: 5, noOfReviews: 10 },
+    { name: "Jane Doe", userImage: "/user-icon.png", rating: 4, noOfReviews: 15 },
+    { name: "Steve Doe", userImage: "/user-icon.png", rating: 3, noOfReviews: 16 },
+  ];
+
   return (
     <JobListingPage>
       <ExtendedListingComponent jobId={jobId} />
+      {posterId &&(<ApplicantSectionComponent applicants={applicants} />)}
 
       {togglePU && (
         <JLPopUpComponent
@@ -56,15 +65,14 @@ function JobListingPageComponent() {
       )}
       {!togglePU && (
         <OptionSectionComponent
-           longButtonText="Log In to Apply"
-        firstShortButtonText="Contact"
-        secondShortButtonTecx="Dashboard"
+          longButtonText="Log In to Apply"
+          firstShortButtonText="Contact"
+          secondShortButtonText="Dashboard"
           applyClick={() => {
             setTogglePU(true);
           }}
         />
       )}
-
     </JobListingPage>
   );
 }

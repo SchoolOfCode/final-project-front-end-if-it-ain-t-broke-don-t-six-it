@@ -7,7 +7,7 @@ import { Applicant } from "./applicant-styled";
 type Props = {
   applicant: {
     name: string;
-    userimage: string;
+    userImage: string;
     rating: number;
     noOfReviews: number;
   };
@@ -17,7 +17,7 @@ function ApplicantComponent({ applicant }: Props) {
   return (
     <Applicant>
       <UserImageComponent
-        source={applicant.userimage}
+        source={applicant.userImage}
         username={applicant.name}
       />
       <UsernameComponent username={applicant.name} />

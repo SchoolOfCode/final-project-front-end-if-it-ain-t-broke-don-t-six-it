@@ -1,9 +1,9 @@
 import { ApplicantSection } from "./applicant-section-styled";
-
+import ApplicantComponent from "../applicant/applicant-component";
 type Props = {
   applicants: {
     name: string;
-    userimage: string;
+    userImage: string;
     rating: number;
     noOfReviews: number;
   }[];

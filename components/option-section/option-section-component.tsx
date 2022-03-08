@@ -8,10 +8,10 @@ type Props = {
   applyClick: () => void;
   longButtonText: string;
   firstShortButtonText: string;
-  secondShortButtonTecx:string
+  secondShortButtonText:string;
 };
 
-function OptionSectionComponent({ applyClick,longButtonText,firstShortButtonText,secondShortButtonTecx }: Props) {
+function OptionSectionComponent({ applyClick,longButtonText,firstShortButtonText,secondShortButtonText }: Props) {
   const { user } = useUser();
 
   return (
@@ -39,7 +39,7 @@ function OptionSectionComponent({ applyClick,longButtonText,firstShortButtonText
           </Link>
         )}
 
-        <div className="short-buttons">
+        {/* <div className="short-buttons">
           <ShortButtonComponent
             text={firstShortButtonText}
             onClick={() => {
@@ -47,12 +47,12 @@ function OptionSectionComponent({ applyClick,longButtonText,firstShortButtonText
             }}
           />
           <ShortButtonComponent
-            text={secondShortButtonTecx}
+            text={secondShortButtonText}
             onClick={() => {
               console.log("Dashboard");
             }}
           />
-        </div>
+        </div> */}
 
       </div>
     </OptionSection>

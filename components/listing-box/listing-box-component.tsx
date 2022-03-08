@@ -11,6 +11,7 @@ type Props = {
   date: string;
   pay: string;
   job_id: number;
+  user_id: string | undefined | null;
 };
 
 function ListingBoxComponent({
@@ -20,13 +21,14 @@ function ListingBoxComponent({
   date,
   pay,
   job_id,
+  user_id,
 }: Props) {
   return (
     <ListingBox>
       <TopComponent text={title} source={source} />
       <ListingLocationComponent text={address} />
       <ListingDnTComponent text={date} />
-      <BottomComponent job_id={job_id} text={pay} />
+      <BottomComponent job_id={job_id} text={pay} user_id={user_id} />
     </ListingBox>
   );
 }
