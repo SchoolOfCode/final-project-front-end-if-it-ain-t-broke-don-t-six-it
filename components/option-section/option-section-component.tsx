@@ -17,7 +17,15 @@ function OptionSectionComponent({ applyClick,longButtonText,firstShortButtonText
   return (
     <OptionSection>
       <div className="flex-container">
-        {user && <LongButtonComponent text="Apply" onClick={applyClick} />}
+        {user && (
+          <>
+            <LongButtonComponent text="Apply" onClick={applyClick} />
+            <div className="short-buttons">
+              <ShortButtonComponent text="Contact" onClick={() => {}} />
+              <ShortButtonComponent text="Dashboard" onClick={() => {}} />
+            </div>
+          </>
+        )}
         {!user && (
           <Link href="/api/auth/login">
             <a>
@@ -30,6 +38,7 @@ function OptionSectionComponent({ applyClick,longButtonText,firstShortButtonText
             </a>
           </Link>
         )}
+
         <div className="short-buttons">
           <ShortButtonComponent
             text={firstShortButtonText}
@@ -44,6 +53,7 @@ function OptionSectionComponent({ applyClick,longButtonText,firstShortButtonText
             }}
           />
         </div>
+
       </div>
     </OptionSection>
   );

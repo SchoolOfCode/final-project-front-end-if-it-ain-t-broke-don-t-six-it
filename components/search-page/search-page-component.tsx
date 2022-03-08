@@ -6,6 +6,7 @@ import { SearchPage } from "./search-page-styled";
 import { useEffect, useState } from "react";
 import ShowMoreButtonComponent from "../show-more-button/show-more-button-component";
 import { useRouter } from "next/router";
+import ErrorTextComponent from "../error-text/error-text-component";
 
 type Props = {
   accepted_user_id: null;
@@ -105,6 +106,9 @@ function SearchPageComponent() {
         }}
         onClick={() => setToggleFetch(!toggleFetch)}
       />
+      {jobs.length === 0 && (
+        <ErrorTextComponent text="Sorry, no results have been found" />
+      )}
       {jobs.map(
         ({ job_id, title, user_image, date, rate_of_pay, city, county }) => {
           return (
@@ -121,7 +125,9 @@ function SearchPageComponent() {
         }
       )}
 
-      <ShowMoreButtonComponent onClick={() => setOffSet(offSet + 5)} />
+      {jobs.length !== 0 && (
+        <ShowMoreButtonComponent onClick={() => setOffSet(offSet + 5)} />
+      )}
     </SearchPage>
   );
 }

@@ -6,6 +6,7 @@ export const OptionSection = styled.section`
   width: 100%;
   margin: auto;
   box-shadow: rgba(0, 0, 0, 0.35) 10px -2px 15px;
+  background-color: white;
 
   .flex-container {
     display: flex;

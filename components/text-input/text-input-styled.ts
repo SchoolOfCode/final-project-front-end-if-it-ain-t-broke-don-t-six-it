@@ -8,4 +8,6 @@ export const TextInput = styled.input.attrs({
   font-size: 18px;
   position: relative;
   top: -9px;
+  border: 0.8px solid #ddd;
+  border-radius: 2px;
 `;

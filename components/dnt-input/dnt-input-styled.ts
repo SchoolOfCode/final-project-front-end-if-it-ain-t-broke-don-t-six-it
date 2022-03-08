@@ -10,6 +10,6 @@ export const DnTInput = styled(DatePicker)`
 export const SpaceComponent = styled(Space)`
   position: relative;
   top: -9px;
-  border: 2px solid black;
+
   width: 100%;
 `;
