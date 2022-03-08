@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const OptionSection = styled.section`
-  position: fixed;
   bottom: 0;
   width: 100%;
   margin: auto;
@@ -19,5 +18,11 @@ export const OptionSection = styled.section`
     display: flex;
     flex-direction: row;
     gap: 5px;
+  }
+  .positionfixed {
+    position: fixed;
+  }
+  .positionnotfixed {
+    position: none;
   }
 `;

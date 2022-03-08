@@ -46,15 +46,32 @@ function JobListingPageComponent() {
   }, [toggleApply]);
 
   const applicants = [
-    { name: "John Doe", userImage: "/user-icon.png", rating: 5, noOfReviews: 10 },
-    { name: "Jane Doe", userImage: "/user-icon.png", rating: 4, noOfReviews: 15 },
-    { name: "Steve Doe", userImage: "/user-icon.png", rating: 3, noOfReviews: 16 },
+    {
+      name: "John Doe",
+      userImage: "/user-icon.png",
+      rating: 5,
+      noOfReviews: 10,
+    },
+    {
+      name: "Jane Doe",
+      userImage: "/user-icon.png",
+      rating: 4,
+      noOfReviews: 15,
+    },
+    {
+      name: "Steve Doe",
+      userImage: "/user-icon.png",
+      rating: 3,
+      noOfReviews: 16,
+    },
   ];
 
   return (
     <JobListingPage>
       <ExtendedListingComponent jobId={jobId} />
-      {posterId &&(<ApplicantSectionComponent applicants={applicants} />)}
+      {posterId !== "false" && (
+        <ApplicantSectionComponent applicants={applicants} />
+      )}
 
       {togglePU && (
         <JLPopUpComponent
@@ -65,6 +82,7 @@ function JobListingPageComponent() {
       )}
       {!togglePU && (
         <OptionSectionComponent
+          position={posterId !== "false" ? false : true}
           longButtonText="Log In to Apply"
           firstShortButtonText="Contact"
           secondShortButtonText="Dashboard"
