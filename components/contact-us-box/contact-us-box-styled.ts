@@ -16,4 +16,10 @@ export const ContactUs = styled.div`
     display: flex;
     flex-direction: row;
   }
+  * {
+    padding: 0px 10px 0px 10px;
+  }
+  h1 {
+    text-align: center;
+  }
 `;

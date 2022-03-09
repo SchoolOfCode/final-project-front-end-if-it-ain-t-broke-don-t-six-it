@@ -37,7 +37,7 @@ function ListingBoxComponent({
       const response = await fetch(`${URL}?userId=${user?.sub}`);
       const data = await response.json();
       console.log(data);
-      
+
       setIsFavourited(data.payload.includes(user_id));
     }
     if (user) {
