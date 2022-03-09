@@ -38,6 +38,7 @@ function ListingBoxComponent({
       const data = await response.json();
       console.log(data);
 
+
       setIsFavourited(data.payload.includes(job_id));
     }
     if (user) {
