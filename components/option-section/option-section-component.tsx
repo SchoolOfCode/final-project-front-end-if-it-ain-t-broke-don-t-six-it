@@ -10,6 +10,7 @@ type Props = {
   firstShortButtonText: string;
   secondShortButtonText: string;
   position?: boolean;
+  posterId: string | string[] | undefined;
 };
 
 function OptionSectionComponent({
@@ -18,13 +19,14 @@ function OptionSectionComponent({
   firstShortButtonText,
   secondShortButtonText,
   position,
+  posterId,
 }: Props) {
   const { user } = useUser();
 
   return (
     <OptionSection className={position ? " positionfixed" : "positionnotfixed"}>
       <div className={"flex-container"}>
-        {user && (
+        {user && posterId === "false" ? (
           <>
             <LongButtonComponent text="Apply" onClick={applyClick} />
             <div className="short-buttons">
@@ -36,6 +38,11 @@ function OptionSectionComponent({
               <ShortButtonComponent text="Dashboard" onClick={() => {}} />
             </div>
           </>
+        ) : (
+          <div>
+            <ShortButtonComponent text="Edit" onClick={() => {}} />
+            <ShortButtonComponent text="Delete" onClick={() => {}} />
+          </div>
         )}
         {!user && (
           <Link href="/api/auth/login">

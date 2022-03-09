@@ -1,14 +1,28 @@
 import { useEffect, useState } from "react";
 import JobsListingContainerComponent from "../jobs-listing-container/jobs-listing-container-component";
-import PageHeaderComponent from "../page-header/page-header-component";
 import { FavouriteSection } from "./favourite-section-styled";
+import { useUser } from "@auth0/nextjs-auth0";
+import SubHeaderComponent from "../sub-header/sub-header-component";
 
 function FavouriteSectionComponent() {
   const [favouriteJobs, setFavouriteJobs] = useState();
-  useEffect(() => {}, []);
+  const { user } = useUser();
+
+  useEffect(() => {
+    async function getAllFavouriteJobs() {
+      const response = await fetch(
+        `https://oddjob.herokuapp.com/jobs/favourites/${user?.sub}`
+      );
+      const data = await response.json();
+      console.log(data);
+      setFavouriteJobs(data.payload);
+    }
+    getAllFavouriteJobs();
+  }, []);
+
   return (
     <FavouriteSection id="favouriteJobs">
-      <PageHeaderComponent text="Favourited" />
+      <SubHeaderComponent text="Favourited" />
       <JobsListingContainerComponent listOfJobs={favouriteJobs} />
     </FavouriteSection>
   );
