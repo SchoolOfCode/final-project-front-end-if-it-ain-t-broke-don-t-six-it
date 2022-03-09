@@ -6,7 +6,7 @@ type Props = {
 };
 
 function UserImageComponent({ source, username }: Props) {
-  return <>{source !== null && <UserImage src={source} alt={username} />});</>;
+  return <>{source !== null && <UserImage src={source} alt={username} />}</>;
 }
 
 export default UserImageComponent;

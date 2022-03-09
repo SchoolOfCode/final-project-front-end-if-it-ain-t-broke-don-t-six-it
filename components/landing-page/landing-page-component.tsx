@@ -13,6 +13,7 @@ function LandingPageComponent() {
       <div className="listing-container">
         <PageHeaderComponent text="Latest Jobs" />
         <ListingBoxComponent
+          user_id={"1"}
           title="English Tutor"
           source="/user-icon.png"
           address="Oldham, London"
@@ -21,6 +22,7 @@ function LandingPageComponent() {
           job_id={0}
         />
         <ListingBoxComponent
+          user_id={"1"}
           title="Dog Walking"
           source="/user-icon.png"
           address="Trent, Nottingham"
@@ -29,6 +31,7 @@ function LandingPageComponent() {
           job_id={1}
         />
         <ListingBoxComponent
+          user_id={"1"}
           title="House Sitting"
           source="/user-icon.png"
           address="Loughborough, Leicstershire"

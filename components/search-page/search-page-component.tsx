@@ -110,7 +110,7 @@ function SearchPageComponent() {
         <ErrorTextComponent text="Sorry, no results have been found" />
       )}
       {jobs.map(
-        ({ job_id, title, user_image, date, rate_of_pay, city, county }) => {
+        ({ job_id, title, user_image, date, rate_of_pay, city, county, user_id }) => {
           return (
             <ListingBoxComponent
               key={job_id}
@@ -120,6 +120,7 @@ function SearchPageComponent() {
               address={`${city}, ${county}`}
               date={`${date.substring(0, 10)} ${date.substring(11, 16)}`}
               pay={rate_of_pay}
+              user_id={user_id}
             />
           );
         }

@@ -8,15 +8,22 @@ type Props = {
   applyClick: () => void;
   longButtonText: string;
   firstShortButtonText: string;
-  secondShortButtonTecx:string
+  secondShortButtonText: string;
+  position?: boolean;
 };
 
-function OptionSectionComponent({ applyClick,longButtonText,firstShortButtonText,secondShortButtonTecx }: Props) {
+function OptionSectionComponent({
+  applyClick,
+  longButtonText,
+  firstShortButtonText,
+  secondShortButtonText,
+  position,
+}: Props) {
   const { user } = useUser();
 
   return (
-    <OptionSection>
-      <div className="flex-container">
+    <OptionSection className={position ? " positionfixed" : "positionnotfixed"}>
+      <div className={"flex-container"}>
         {user && (
           <>
             <LongButtonComponent text="Apply" onClick={applyClick} />
@@ -38,22 +45,6 @@ function OptionSectionComponent({ applyClick,longButtonText,firstShortButtonText
             </a>
           </Link>
         )}
-
-        <div className="short-buttons">
-          <ShortButtonComponent
-            text={firstShortButtonText}
-            onClick={() => {
-              console.log("Contact");
-            }}
-          />
-          <ShortButtonComponent
-            text={secondShortButtonTecx}
-            onClick={() => {
-              console.log("Dashboard");
-            }}
-          />
-        </div>
-
       </div>
     </OptionSection>
   );

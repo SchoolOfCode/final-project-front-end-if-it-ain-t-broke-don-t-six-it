@@ -19,6 +19,7 @@ export const Container = styled.div`
   top: 60px;
   z-index: -1;
   animation: ${fade} 5s 1;
+  margin-buttom: 150px;
 
   .text {
     position: absolute;
