@@ -7,6 +7,7 @@ function SupportSectionComponent() {
     <SupportSection>
       <PageHeaderComponent text="Support"></PageHeaderComponent>
       <ContactUsComponent />
+      <FaqBoxComponent/>
     </SupportSection>
   );
 }
