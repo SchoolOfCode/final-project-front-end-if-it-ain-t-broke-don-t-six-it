@@ -1,14 +1,15 @@
 import type { NextPage } from "next";
+import SupportPageComponent from "../components/support-page/support-page-component";
 
 import NavBarComponent from "../components/navbar/navbar-component";
 
-const PostJob: NextPage = () => {
+const Support: NextPage = () => {
   return (
     <div>
       <NavBarComponent isMenu={false} />
-      <SearchPageComponent />
+      <SupportPageComponent />
     </div>
   );
 };
 
-export default PostJob;
+export default Support;

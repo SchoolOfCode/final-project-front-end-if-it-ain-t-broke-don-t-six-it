@@ -86,6 +86,7 @@ function JobListingPageComponent() {
           longButtonText="Log In to Apply"
           firstShortButtonText="Contact"
           secondShortButtonText="Dashboard"
+          posterId={posterId}
           applyClick={() => {
             setTogglePU(true);
           }}

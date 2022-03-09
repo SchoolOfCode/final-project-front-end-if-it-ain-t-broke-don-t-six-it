@@ -5,8 +5,8 @@ import ListingDnTComponent from "../listing-dnt/listing-dnt-component";
 import BottomComponent from "../bottom/bottom-component";
 import { useUser } from "@auth0/nextjs-auth0";
 import { useEffect, useState } from "react";
-const URL = "localhost:8080/jobs/favourites";
-const URL2 = "https://oddjob.herokuapp.com/jobs/favourites";
+const URL2 = "localhost:8080/jobs/favourites";
+const URL = "https://oddjob.herokuapp.com/jobs/favourites";
 type Props = {
   title: string;
   source: string | undefined | null;
@@ -34,11 +34,12 @@ function ListingBoxComponent({
 
   useEffect(() => {
     async function getFavouriteJobIds() {
-      const response = await fetch(`${URL}?userId=${user?.sub}`);
+      const response = await fetch(`${URL}/jobId/${user?.sub}`);
       const data = await response.json();
       console.log(data);
-      
-      setIsFavourited(data.payload.includes(user_id));
+
+
+      setIsFavourited(data.payload.includes(job_id));
     }
     if (user) {
       getFavouriteJobIds();
@@ -58,16 +59,20 @@ function ListingBoxComponent({
     }
     async function addFavouriteJob() {
       const response = await fetch(`${URL}`, {
-        method: "PUT",
+        method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId: user?.sub, jobId: job_id }),
       });
       const data = await response.json();
       console.log(data);
     }
-    if (isFavouriteToggle) {
+    console.log(isFavouriteToggle);
+    if (isFavouriteToggle && !isFavourited) {
       addFavouriteJob();
-    } else if (!isFavouriteToggle && isFavouriteToggle !== undefined) {
+    } else if (
+      (!isFavouriteToggle && isFavouriteToggle !== undefined) ||
+      (isFavourited && !isFavouriteToggle)
+    ) {
       deleteFavouriteJob();
     }
   }, [isFavouriteToggle]);
@@ -88,3 +93,4 @@ function ListingBoxComponent({
   );
 }
 export default ListingBoxComponent;
+
