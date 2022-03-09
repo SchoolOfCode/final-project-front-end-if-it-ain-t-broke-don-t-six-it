@@ -35,7 +35,7 @@ function DashboardComponent() {
         <>
           <SectionBoxComponent />
           <YourJobsComponent />
-          {/* <FavouriteSectionComponent /> */}
+          <FavouriteSectionComponent />
           <DashboardOptionSectionComponent />
         </>
       )}
