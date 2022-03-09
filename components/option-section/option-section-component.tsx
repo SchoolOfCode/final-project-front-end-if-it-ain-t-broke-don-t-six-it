@@ -28,7 +28,11 @@ function OptionSectionComponent({
           <>
             <LongButtonComponent text="Apply" onClick={applyClick} />
             <div className="short-buttons">
-              <ShortButtonComponent text="Contact" onClick={() => {}} />
+              {/* if more time, the contact button would be disabled until poster is approved */}
+              <a className="short-buttons" href="mailto:someone@example.com">
+                <ShortButtonComponent text="Contact" onClick={() => {}} />
+              </a>
+
               <ShortButtonComponent text="Dashboard" onClick={() => {}} />
             </div>
           </>

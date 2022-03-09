@@ -20,7 +20,7 @@ function DashboardOptionSectionComponent() {
           <ShortButtonComponent
             text="Job History"
             onClick={() => {
-              console.log("Contact");
+              console.log("Job History");
             }}
           />
 

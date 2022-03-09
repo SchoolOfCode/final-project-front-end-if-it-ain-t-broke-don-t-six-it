@@ -17,7 +17,7 @@ export const OptionSection = styled.section`
   .short-buttons {
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    justify-content: space-between;
   }
   .positionfixed {
     position: fixed;
