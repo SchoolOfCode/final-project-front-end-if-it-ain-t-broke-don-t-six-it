@@ -29,10 +29,20 @@ type Props = {
 };
 
 function JobsListingContainerComponent({ listOfJobs }: Props) {
+  console.log(listOfJobs);
   return (
     <JobsListingContainer>
       {listOfJobs?.map(
-        ({ job_id, title, user_image, date, rate_of_pay, city, county, user_id }) => {
+        ({
+          job_id,
+          title,
+          user_image,
+          date,
+          rate_of_pay,
+          city,
+          county,
+          user_id,
+        }) => {
           return (
             <ListingBoxComponent
               key={job_id}
@@ -47,6 +57,8 @@ function JobsListingContainerComponent({ listOfJobs }: Props) {
           );
         }
       )}
+      {listOfJobs === undefined ||
+        (listOfJobs?.length === 0 && <p>No jobs found</p>)}
     </JobsListingContainer>
   );
 }
