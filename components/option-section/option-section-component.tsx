@@ -24,25 +24,35 @@ function OptionSectionComponent({
   const { user } = useUser();
 
   return (
-    <OptionSection className={position ? " positionfixed" : "positionnotfixed"}>
+    <OptionSection>
       <div className={"flex-container"}>
-        {user && posterId === "false" ? (
+        {user && (
           <>
-            <LongButtonComponent text="Apply" onClick={applyClick} />
-            <div className="short-buttons">
-              {/* if more time, the contact button would be disabled until poster is approved */}
-              <a className="mailto" href="mailto:someone@example.com">
-                <ShortButtonComponent text="Contact" onClick={() => {}} />
-              </a>
-
-              <ShortButtonComponent text="Dashboard" onClick={() => {}} />
-            </div>
+            {posterId === "false" ? (
+              <>
+                <LongButtonComponent text="Apply" onClick={applyClick} />
+                <div className="short-buttons">
+                  {/* if more time, the contact button would be disabled until poster is approved */}
+                  <a className="mailto" href="mailto:someone@example.com">
+                    <ShortButtonComponent text="Contact" onClick={() => {}} />
+                  </a>
+                  <Link href="/dashboard">
+                    <a>
+                      <ShortButtonComponent
+                        text="Dashboard"
+                        onClick={() => {}}
+                      />
+                    </a>
+                  </Link>
+                </div>
+              </>
+            ) : (
+              <div>
+                <LongButtonComponent text="Edit" onClick={() => {}} />
+                <LongButtonComponent text="Delete" onClick={() => {}} />
+              </div>
+            )}
           </>
-        ) : (
-          <div>
-            <ShortButtonComponent text="Edit" onClick={() => {}} />
-            <ShortButtonComponent text="Delete" onClick={() => {}} />
-          </div>
         )}
         {!user && (
           <Link href="/api/auth/login">
