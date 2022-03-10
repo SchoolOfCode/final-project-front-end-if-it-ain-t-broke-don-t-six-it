@@ -14,9 +14,8 @@ function JobListingPageComponent() {
   const [togglePU, setTogglePU] = useState(false);
   const router = useRouter();
   const { user } = useUser();
-
   const posterId = router.query.userId;
-  console.log(posterId);
+
   useEffect(() => {
     if (typeof router.query.jobId === "string") {
       setJobId(Number(router.query.jobId));
@@ -72,7 +71,6 @@ function JobListingPageComponent() {
       {posterId !== "false" && (
         <ApplicantSectionComponent applicants={applicants} />
       )}
-
       {togglePU && (
         <JLPopUpComponent
           setToggle={setTogglePU}

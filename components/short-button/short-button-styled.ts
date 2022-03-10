@@ -4,7 +4,7 @@ export const ShortButton = styled.button`
   margin: 15px;
   height: 40px;
   background-color: #9a348e;
-  width: 91%;
+  width: 100%;
   font-size: 20px;
   color: white;
   border: none;
