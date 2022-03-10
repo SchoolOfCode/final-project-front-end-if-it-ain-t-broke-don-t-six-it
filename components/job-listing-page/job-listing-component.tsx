@@ -7,6 +7,27 @@ import { useUser } from "@auth0/nextjs-auth0";
 import JLPopUpComponent from "../jl-pop-up/jl-pop-up-component";
 import ApplicantSectionComponent from "../applicant-section/applicant-section-component";
 
+const applicants = [
+  {
+    name: "John Doe",
+    userImage: "/user-icon.png",
+    rating: 5,
+    noOfReviews: 10,
+  },
+  {
+    name: "Jane Doe",
+    userImage: "/user-icon.png",
+    rating: 4,
+    noOfReviews: 15,
+  },
+  {
+    name: "Steve Doe",
+    userImage: "/user-icon.png",
+    rating: 3,
+    noOfReviews: 16,
+  },
+];
+
 function JobListingPageComponent() {
   const [jobId, setJobId] = useState(0);
   const [toggle, setToggle] = useState(false);
@@ -14,6 +35,10 @@ function JobListingPageComponent() {
   const [togglePU, setTogglePU] = useState(false);
   const router = useRouter();
   const { user } = useUser();
+  const [isFavourited, setIsFavourited] =
+    useState<boolean | undefined>(undefined);
+  const [isFavouriteToggle, setIsFavouriteToggle] =
+    useState<boolean | undefined>();
 
   const posterId = router.query.userId;
   console.log(posterId);
@@ -45,30 +70,14 @@ function JobListingPageComponent() {
     }
   }, [toggleApply]);
 
-  const applicants = [
-    {
-      name: "John Doe",
-      userImage: "/user-icon.png",
-      rating: 5,
-      noOfReviews: 10,
-    },
-    {
-      name: "Jane Doe",
-      userImage: "/user-icon.png",
-      rating: 4,
-      noOfReviews: 15,
-    },
-    {
-      name: "Steve Doe",
-      userImage: "/user-icon.png",
-      rating: 3,
-      noOfReviews: 16,
-    },
-  ];
-
   return (
     <JobListingPage>
-      <ExtendedListingComponent jobId={jobId} />
+      <ExtendedListingComponent
+        jobId={jobId}
+        isFavouriteToggle={isFavouriteToggle}
+        setIsFavouriteToggle={setIsFavouriteToggle}
+        isFavourited={isFavourited}
+      />
       {posterId !== "false" && (
         <ApplicantSectionComponent applicants={applicants} />
       )}

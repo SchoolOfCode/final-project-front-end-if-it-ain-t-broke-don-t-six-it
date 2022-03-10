@@ -38,8 +38,17 @@ type Payload = {
 
 type Props = {
   jobId: number | undefined;
+  setIsFavouriteToggle: (e: boolean) => void;
+  isFavouriteToggle: boolean | undefined;
+  isFavourited: boolean | undefined;
 };
-function ExtendedListingComponent({ jobId }: Props) {
+
+function ExtendedListingComponent({
+  jobId,
+  setIsFavouriteToggle,
+  isFavouriteToggle,
+  isFavourited,
+}: Props) {
   const [jobListingData, setJobListingData] = useState<Payload>();
 
   useEffect(() => {
@@ -62,7 +71,12 @@ function ExtendedListingComponent({ jobId }: Props) {
             <ListingHeaderComponent
               text={jobListingData?.jobListingData[0].title}
             />
-            <FavouriteButtonComponent isExtended={true} />
+            <FavouriteButtonComponent
+              isExtended={true}
+              isFavouriteToggle={isFavouriteToggle}
+              setIsFavouriteToggle={setIsFavouriteToggle}
+              isFavourited={isFavourited}
+            />
           </div>
           <ListingLocationComponent
             text={jobListingData?.jobListingData[0].city}
