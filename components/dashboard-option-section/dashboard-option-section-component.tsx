@@ -17,12 +17,14 @@ function DashboardOptionSectionComponent() {
         </Link>
 
         <div className="short-buttons">
-          <ShortButtonComponent
-            text="Job History"
-            onClick={() => {
-              console.log("Job History");
-            }}
-          />
+          <Link href="/api/auth/logout" passHref>
+            <ShortButtonComponent
+              text="Log Out"
+              onClick={() => {
+                console.log("Job History");
+              }}
+            />
+          </Link>
 
           <Link href="post-job" passHref>
             <ShortButtonComponent
