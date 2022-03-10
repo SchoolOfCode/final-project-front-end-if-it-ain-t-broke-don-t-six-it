@@ -124,6 +124,7 @@ function SearchPageComponent() {
           county,
           user_id,
         }) => {
+          console.log(user_id);
           return (
             <ListingBoxComponent
               key={job_id}
