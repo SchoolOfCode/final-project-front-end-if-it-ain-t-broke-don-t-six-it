@@ -2,11 +2,13 @@ import { UserImage } from "./user-image-styled";
 
 type Props = {
   source: string | undefined | null;
-  username: string | undefined;
+  username: string | undefined | null;
 };
 
 function UserImageComponent({ source, username }: Props) {
-  return <>{source !== null && <UserImage src={source} alt={username} />}</>;
+  return (
+    <>{source !== null && <UserImage src={source} alt={`${username}`} />}</>
+  );
 }
 
 export default UserImageComponent;

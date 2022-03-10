@@ -10,11 +10,11 @@ function SectionBoxComponent() {
     <SectionBox>
       <ButtonDivComponent />
       <UserInfoComponent
-        username="bob"
-        bio="im great"
-        source="/user-icon.png"
-        rating={4}
-        numberOfReviews={12}
+        username={user?.name}
+        bio="I'm Awesome!"
+        source={user?.picture}
+        rating={5}
+        numberOfReviews={27}
       />
     </SectionBox>
   );
