@@ -69,10 +69,10 @@ function SearchPageComponent() {
       setWord(router.query.word);
       setCount(1);
     }
-
+    console.log(location, word, offSet, jobs);
     let url: string;
     if (location === "" && word === "") {
-      url = `https://oddjob.herokuapp.com/jobs?ffSet=${offSet}`;
+      url = `https://oddjob.herokuapp.com/jobs?offSet=${offSet}`;
     } else if (location === "") {
       url = `https://oddjob.herokuapp.com/jobs/?keyword=${word}&offSet=${offSet}`;
     } else if (word === "") {
@@ -83,6 +83,7 @@ function SearchPageComponent() {
     async function getJobs() {
       const response = await fetch(url);
       const data = await response.json();
+      console.log(data.payload);
       let sortedData = sorting(data.payload);
       setJobs([...jobs, ...sortedData]);
     }
@@ -91,6 +92,9 @@ function SearchPageComponent() {
 
   useEffect(() => {
     setJobs([]);
+  }, [word, location]);
+  useEffect(() => {
+    setOffSet(0);
   }, [word, location]);
 
   return (
@@ -110,7 +114,16 @@ function SearchPageComponent() {
         <ErrorTextComponent text="Sorry, no results have been found" />
       )}
       {jobs.map(
-        ({ job_id, title, user_image, date, rate_of_pay, city, county, user_id }) => {
+        ({
+          job_id,
+          title,
+          user_image,
+          date,
+          rate_of_pay,
+          city,
+          county,
+          user_id,
+        }) => {
           return (
             <ListingBoxComponent
               key={job_id}
