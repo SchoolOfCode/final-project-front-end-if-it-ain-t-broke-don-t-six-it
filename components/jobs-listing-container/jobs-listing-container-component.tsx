@@ -1,5 +1,6 @@
 import { JobsListingContainer } from "./jobs-listing-container-styled";
 import ListingBoxComponent from "../listing-box/listing-box-component";
+import ErrorBoxComponent from "../error-box/error-box-component";
 
 type Props = {
   listOfJobs:
@@ -58,7 +59,9 @@ function JobsListingContainerComponent({ listOfJobs }: Props) {
         }
       )}
       {listOfJobs === undefined ||
-        (listOfJobs?.length === 0 && <p>No jobs found</p>)}
+        (listOfJobs?.length === 0 && (
+          <ErrorBoxComponent text="No jobs found" />
+        ))}
     </JobsListingContainer>
   );
 }
