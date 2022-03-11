@@ -40,6 +40,7 @@ function JobListingPageComponent() {
   const [isFavouriteToggle, setIsFavouriteToggle] =
     useState<boolean | undefined>();
   const posterId = router.query.userId;
+  console.log(posterId, typeof posterId);
 
   useEffect(() => {
     if (typeof router.query.jobId === "string") {

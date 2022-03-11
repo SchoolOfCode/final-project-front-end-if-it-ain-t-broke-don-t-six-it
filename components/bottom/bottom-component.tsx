@@ -14,6 +14,7 @@ function BottomComponent({ text, job_id, user_id }: Props) {
   const { user } = useUser();
   const router = useRouter();
   let userId: string | boolean | undefined | null;
+  console.log(user?.sub, user_id);
   if (user?.sub === user_id) {
     userId = user_id;
   } else {

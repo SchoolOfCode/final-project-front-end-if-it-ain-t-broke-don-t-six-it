@@ -31,13 +31,13 @@ function ListingBoxComponent({
   const [isFavouriteToggle, setIsFavouriteToggle] =
     useState<boolean | undefined>();
   const { user } = useUser();
+  console.log(user_id);
 
   useEffect(() => {
     async function getFavouriteJobIds() {
       const response = await fetch(`${URL}/jobId/${user?.sub}`);
       const data = await response.json();
       console.log(data);
-
 
       setIsFavourited(data.payload.includes(job_id));
     }
@@ -93,4 +93,3 @@ function ListingBoxComponent({
   );
 }
 export default ListingBoxComponent;
-
