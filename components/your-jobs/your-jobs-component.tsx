@@ -28,7 +28,7 @@ type Payload = {
 }[];
 function YourJobsComponent() {
   const [focusOn, setfocusOn] = useState("Upcoming");
-  const [upcomingJobs, setUpcomingJobs] = useState();
+  const [upcomingJobs, setUpcomingJobs] = useState([]);
   const [pendingJobs, setPendingJobs] = useState();
   const [postedJobs, setPostedJobs] = useState<Payload>();
   const { user } = useUser();
@@ -38,7 +38,8 @@ function YourJobsComponent() {
     async function getUpcomingJobs() {
       const response = await fetch(`${url}/upcoming/${user?.sub}`);
       const data = await response.json();
-      setUpcomingJobs(data.payload);
+      console.log(data);
+      setUpcomingJobs([]);
     }
     async function getPendingJobs() {
       const response = await fetch(`${url}/pending/${user?.sub}`);

@@ -6,7 +6,8 @@ import { SearchPage } from "./search-page-styled";
 import { useEffect, useState } from "react";
 import ShowMoreButtonComponent from "../show-more-button/show-more-button-component";
 import { useRouter } from "next/router";
-import ErrorTextComponent from "../error-text/error-text-component";
+
+import ErrorBoxComponent from "../error-box/error-box-component";
 
 type Props = {
   accepted_user_id: null;
@@ -111,7 +112,7 @@ function SearchPageComponent() {
         onClick={() => setToggleFetch(!toggleFetch)}
       />
       {jobs.length === 0 && (
-        <ErrorTextComponent text="Sorry, no results have been found" />
+        <ErrorBoxComponent text="Sorry, no results have been found" />
       )}
       {jobs.map(
         ({

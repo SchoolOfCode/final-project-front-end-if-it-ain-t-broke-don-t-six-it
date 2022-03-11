@@ -5,36 +5,42 @@ import Link from "next/link";
 function ButtonDivComponent() {
   return (
     <ButtonDiv>
-      <Link href={"#yourJobs"} passHref>
+      <div className="button-container">
+        <Link href={"#yourJobs"} passHref>
+          <ShortButtonComponent
+            text="Your Jobs"
+            onClick={() => {
+              console.log("here");
+            }}
+          />
+        </Link>
+
+        <Link href={"#favouriteJobs"} passHref>
+          <ShortButtonComponent
+            text="Favourited Jobs"
+            onClick={() => {
+              console.log("here");
+            }}
+          />
+        </Link>
+      </div>
+
+      <div className="button-container">
+        <Link href="/post-job" passHref>
+          <ShortButtonComponent
+            text="Post Job"
+            onClick={() => {
+              console.log("here");
+            }}
+          />
+        </Link>
         <ShortButtonComponent
-          text="Your Jobs"
+          text="Job History"
           onClick={() => {
             console.log("here");
           }}
         />
-      </Link>
-      <Link href={"#favouriteJobs"} passHref>
-        <ShortButtonComponent
-          text="Favourited Jobs"
-          onClick={() => {
-            console.log("here");
-          }}
-        />
-      </Link>
-      <Link href="/post-job" passHref>
-        <ShortButtonComponent
-          text="Post Job"
-          onClick={() => {
-            console.log("here");
-          }}
-        />
-      </Link>
-      <ShortButtonComponent
-        text="Job History"
-        onClick={() => {
-          console.log("here");
-        }}
-      />
+      </div>
     </ButtonDiv>
   );
 }
