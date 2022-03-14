@@ -15,6 +15,8 @@ type Props = {
   pay: string;
   job_id: number;
   user_id: string | undefined | null;
+  favouriteUpdate?: boolean;
+  setFavouriteUpdate?: (state: boolean) => void;
 };
 
 function ListingBoxComponent({
@@ -25,6 +27,8 @@ function ListingBoxComponent({
   pay,
   job_id,
   user_id,
+  setFavouriteUpdate,
+  favouriteUpdate,
 }: Props) {
   const [isFavourited, setIsFavourited] =
     useState<boolean | undefined>(undefined);
@@ -54,6 +58,13 @@ function ListingBoxComponent({
         body: JSON.stringify({ userId: user?.sub, jobId: job_id }),
       });
       const data = await response.json();
+      if (
+        data.success &&
+        favouriteUpdate !== undefined &&
+        setFavouriteUpdate !== undefined
+      ) {
+        setFavouriteUpdate(favouriteUpdate);
+      }
       console.log(data);
       setIsFavourited(false);
     }
@@ -64,6 +75,13 @@ function ListingBoxComponent({
         body: JSON.stringify({ userId: user?.sub, jobId: job_id }),
       });
       const data = await response.json();
+      if (
+        data.success &&
+        favouriteUpdate !== undefined &&
+        setFavouriteUpdate !== undefined
+      ) {
+        setFavouriteUpdate(favouriteUpdate);
+      }
       console.log(data);
     }
     console.log(isFavouriteToggle);
