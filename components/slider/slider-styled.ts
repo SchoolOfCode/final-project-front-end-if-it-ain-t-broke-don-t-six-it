@@ -12,13 +12,16 @@ export const Slider = styled.div`
     /* position: absolute; */
   }
   .left-arrow {
+    opacity: 0;
     color: #1d201e;
     font-size: 2rem;
     /* position: absolute; */
     left: 32px;
+
     /* top: 50%; */
   }
   .right-arrow {
+    opacity: 0;
     color: #1d201e;
     font-size: 2rem;
     /* position: absolute; */

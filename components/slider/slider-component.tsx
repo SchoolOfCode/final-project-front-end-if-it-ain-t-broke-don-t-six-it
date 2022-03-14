@@ -22,7 +22,7 @@ let imageArray = [
   {
     image: "./kid-with-money.jpg",
     alt: "kid with money",
-    content: "Oddjob helped me get through uni.",
+    content: ` "Oddjob helped me get through uni." - Timmy`,
   },
 ];
 
