@@ -6,6 +6,7 @@ import SubHeaderComponent from "../sub-header/sub-header-component";
 
 function FavouriteSectionComponent() {
   const [favouriteJobs, setFavouriteJobs] = useState();
+  const [favouriteUpdate, setFavouriteUpdate] = useState(false);
   const { user } = useUser();
 
   useEffect(() => {
@@ -18,12 +19,18 @@ function FavouriteSectionComponent() {
       setFavouriteJobs(data.payload);
     }
     getAllFavouriteJobs();
-  }, []);
+  }, [favouriteUpdate]);
 
   return (
     <FavouriteSection id="favouriteJobs">
       <SubHeaderComponent text="Favourited" />
-      <JobsListingContainerComponent listOfJobs={favouriteJobs} />
+      <JobsListingContainerComponent
+        favouriteUpdate={favouriteUpdate}
+        setFavouriteUpdate={(state: boolean) => {
+          setFavouriteUpdate(!state);
+        }}
+        listOfJobs={favouriteJobs}
+      />
     </FavouriteSection>
   );
 }

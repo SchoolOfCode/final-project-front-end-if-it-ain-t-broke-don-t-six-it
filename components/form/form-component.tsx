@@ -201,7 +201,10 @@ function reducer(
     case "street":
       return { ...state, street: action.value };
     case "town/city":
-      return { ...state, city: action.value };
+      return {
+        ...state,
+        city: action.value.charAt(0).toUpperCase() + action.value.slice(1),
+      };
     case "county":
       return { ...state, county: action.value };
     case "postcode":

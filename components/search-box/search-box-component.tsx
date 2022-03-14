@@ -39,7 +39,9 @@ function SearchBoxComponent() {
             router.push({
               pathname: "/search",
               query: {
-                location: `${location}`,
+                location: `${
+                  location.charAt(0).toUpperCase() + location.slice(1)
+                }`,
                 word: `${word}`,
                 count: 1,
               },

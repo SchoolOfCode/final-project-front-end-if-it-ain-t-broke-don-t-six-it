@@ -4,12 +4,15 @@ import Image from "next/image";
 
 type Props = {
   isMenu: boolean;
+  onClick: () => void;
 };
 
-function MenuButtonComponent({ isMenu }: Props) {
+function MenuButtonComponent({ isMenu, onClick }: Props) {
+  console.log(isMenu);
   return (
     <MenuButton>
       <Image
+        onClick={onClick}
         alt="menu button"
         src={isMenu ? "/menu-cross.png" : "/menu-burger.png"}
         width="35px"

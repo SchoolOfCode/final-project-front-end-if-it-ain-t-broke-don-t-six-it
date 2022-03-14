@@ -27,9 +27,15 @@ type Props = {
         job_id: number;
       }[]
     | undefined;
+  favouriteUpdate: boolean;
+  setFavouriteUpdate: (state: boolean) => void;
 };
 
-function JobsListingContainerComponent({ listOfJobs }: Props) {
+function JobsListingContainerComponent({
+  listOfJobs,
+  setFavouriteUpdate,
+  favouriteUpdate,
+}: Props) {
   console.log(listOfJobs);
   return (
     <JobsListingContainer>
@@ -46,6 +52,8 @@ function JobsListingContainerComponent({ listOfJobs }: Props) {
         }) => {
           return (
             <ListingBoxComponent
+              setFavouriteUpdate={setFavouriteUpdate}
+              favouriteUpdate={favouriteUpdate}
               key={job_id}
               job_id={job_id}
               title={title}
