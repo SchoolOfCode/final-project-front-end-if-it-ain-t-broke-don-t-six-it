@@ -5,21 +5,28 @@ import MenuButtonComponent from "../menu-button/menu-button-component";
 import UserImageComponent from "../user-image/user-image-component";
 import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
-
+import { useRouter } from "next/router";
 type Props = {
   isMenu: boolean;
 };
 
 function NavBarComponent({ isMenu }: Props) {
   const { user } = useUser();
+  const router = useRouter();
 
   return (
     <NavBar>
-      <Link href={isMenu ? "/" : "/menu"}>
-        <a>
-          <MenuButtonComponent isMenu={isMenu} />
-        </a>
-      </Link>
+      <MenuButtonComponent
+        isMenu={isMenu}
+        onClick={() => {
+          isMenu
+            ? window.history.back()
+            : router.push({
+                pathname: "/menu",
+              });
+        }}
+      />
+
       <Link href="/">
         <a>
           <LogoComponent />

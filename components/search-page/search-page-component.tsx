@@ -104,7 +104,9 @@ function SearchPageComponent() {
       <PageHeaderComponent text="Search For Jobs" />
       <SearchPageBoxComponent
         locationChange={(e) => {
-          setLocation(e.target.value);
+          let city =
+            e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
+          setLocation(city);
         }}
         keywordChange={(value) => {
           setWord(value[0]);
