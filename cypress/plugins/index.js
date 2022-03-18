@@ -19,4 +19,12 @@
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
-}
+};
+
+// const injectDevServer = require("@cypress/react/plugins/next");
+
+// module.exports = (on, config) => {
+//   injectDevServer(on, config);
+
+//   return config;
+// };

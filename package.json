@@ -8,7 +8,8 @@
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "cypress-run": "cypress run"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^1.7.0",
