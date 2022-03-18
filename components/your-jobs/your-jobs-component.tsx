@@ -70,14 +70,35 @@ function YourJobsComponent() {
         }}
         focusOn={focusOn}
       />
+
+      {/* Resolving the type error is missing the following properties from type 'Props': favouriteUpdate, setFavouriteUpdate */}
+
       {focusOn === "Upcoming" && (
-        <JobsListingContainerComponent listOfJobs={upcomingJobs} />
+        <JobsListingContainerComponent
+          listOfJobs={upcomingJobs}
+          favouriteUpdate={false}
+          setFavouriteUpdate={(state: boolean) => {
+            return;
+          }}
+        />
       )}
       {focusOn === "Pending" && (
-        <JobsListingContainerComponent listOfJobs={pendingJobs} />
+        <JobsListingContainerComponent
+          listOfJobs={pendingJobs}
+          favouriteUpdate={false}
+          setFavouriteUpdate={(state: boolean) => {
+            return;
+          }}
+        />
       )}
       {focusOn === "Posted" && (
-        <JobsListingContainerComponent listOfJobs={postedJobs} />
+        <JobsListingContainerComponent
+          listOfJobs={postedJobs}
+          favouriteUpdate={false}
+          setFavouriteUpdate={(state: boolean) => {
+            return;
+          }}
+        />
       )}
     </YourJobs>
   );

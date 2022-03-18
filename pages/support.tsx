@@ -8,6 +8,7 @@ const Support: NextPage = () => {
     <div>
       <NavBarComponent isMenu={false} />
       <SupportPageComponent />
+      <h1>Hello</h1>
     </div>
   );
 };
