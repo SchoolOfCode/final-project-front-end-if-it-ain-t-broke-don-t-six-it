@@ -17,12 +17,12 @@ let imageArray = [
   {
     image: "./granny.jpg",
     alt: "granny in arm chair",
-    content: "I found it easy to get help with oddjob.",
+    content: ` "I found it easy to get help with oddjob."`,
   },
   {
-    image: "./kid-with-money.jpg",
+    image: "./student-with-money.jpeg",
     alt: "kid with money",
-    content: ` "Oddjob helped me get through uni." - Timmy`,
+    content: ` "Oddjob helped me get through Uni." `,
   },
 ];
 

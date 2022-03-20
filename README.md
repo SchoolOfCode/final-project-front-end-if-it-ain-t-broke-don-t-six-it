@@ -1,34 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Odd Job App
 
-## Getting Started
+## About
 
-First, run the development server:
+Odd job is platform that brings together people who want to earn cash by doing jobs in their spare time with people who need help with odd jobs.
+Odd job app has been created by a team of 6 creators as part of a four week project at School of code [School of Code](https://www.schoolofcode.co.uk/).
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+<img src="./public/app.png" alt="app">
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Problem Statement
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+University students want to earn money by doing work that suits their schedule, but there is not a central platform for them to find odd jobs.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### Tech Stack
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<img src="./public/TeckStack.jpg" alt="techstack">
 
-## Learn More
+## Meet the team
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Abdullahi Ali [@abdullahiali89](https://github.com/abdullahiali89) <br>
+Ana-Maria Barrow [@ana-maria-b](https://github.com/ana-maria-b) <br>
+Guy Robbins [@Guy-Robbins](https://github.com/Guy-Robbins)<br>
+Sahara Rai [@SaharaRai](https://github.com/SaharaRai)<br>
+Ted Phillips [@TedPhillips1](https://github.com/TedPhillips1)<br>
+William Calderbank [@WCalderbank](https://github.com/WCalderbank)<br>
